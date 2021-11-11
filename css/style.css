@@ -1,0 +1,29 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("../Images/textures-league.jpg");
+    background-size: cover;
+    margin: 0;
+}
+
+
+.header_container{
+    background-color: rgb(15, 13, 13);
+    margin: 0;
+    padding: 5px 5px;
+    color: black;
+    font-family: 'Dela Gothic One', cursive;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+
+.footer_container{
+    background-color: black;
+    text-align: center;
+}
+.item_footer{
+    text-decoration: none;
+    color: white;
+    margin: 2em; 
+}
