@@ -1,29 +1,67 @@
 body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family : 'Courier New', Courier, monospace;
     background-image: url("../Images/textures-league.jpg");
     background-size: cover;
     margin: 0;
 }
 
-
+/* HEADER */
 .header_container{
-    background-color: rgb(15, 13, 13);
+    background-color: rgb(235, 235, 235);
     margin: 0;
     padding: 5px 5px;
-    color: black;
-    font-family: 'Dela Gothic One', cursive;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     position: -webkit-sticky;
     position: sticky;
     z-index: 1;
     top: 0;
 }
+.img_logo{
+    width: 150px;
+    height: 70px;
+}
+.navbar_header{
+    border-radius: 5px;
+    color: rgb(75, 67, 20);
+    padding: 12px;
+    font-size: 25px;
+    text-decoration: none;
+}
+.nav_list{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    text-decoration: none;
+    list-style: none;
+}
 
+
+
+/* FOOTER */
 .footer_container{
-    background-color: black;
+    background-color: rgb(235, 235, 235);
     text-align: center;
 }
 .item_footer{
+    color: black;
+    padding: 1.3em; 
+}
+
+/* MORE GENERIC AND REUSABLE CLASS */
+.displayFlex{
+    display: flex;
+}
+.bold{
+    font-weight: bold;
+}
+.dec_none{
     text-decoration: none;
-    color: white;
-    margin: 2em; 
+}
+.border_b1s{    
+    border: 1px solid black;
+    border-radius: 3%;
+    padding: 5px;
+}
+.gold{
+    color: rgb(75, 67, 20);
 }
