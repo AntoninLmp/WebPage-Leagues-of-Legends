@@ -1,12 +1,24 @@
 #img_home_s1{
     width: 100%;
 }
+/* SECTION */
+h1{
+    margin: 0%;
+    text-transform: uppercase;
+}
+
 .title1{
     background: rgba(7,14,32,255) url(../Images/over_title.png);
 }
+
 .title2{
     background: #153144 url(../Images/over_title.png);
 }
+
+.title3{
+    background: #102838 url(../Images/over_title.png);
+}
+
 .wrapped{
     position: relative;
     top: -25px;
@@ -18,16 +30,49 @@
     text-align: center;
     padding: 25px;
     border-radius: 45%;
+    border: 0;
 }
 .bubble_info{
     background-color: rgb(10, 22, 49);
-    border-radius: 2%;
+    border-radius: 5em;
     width: 30%;
     margin: 10px 10%;
 }
 .article_bubble{
     flex-wrap: wrap;
-    justify-content: center;
-    padding-bottom: 40px;
     text-align: center;
+    justify-content: center;
+}
+.padding_section{
+    padding-bottom: 40px;
+}
+
+/* SECTION 2 */
+.text_imp{
+    font-size: 1.3em;
+    text-align: center;
+}
+#text_GC{
+    margin: 0 10%;
+    justify-content: center;
+    text-align: center;
+}
+#img_game_caract{
+    width: 90%;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#div_playnow{
+    height: 50px;
+    padding-top: 25%;
+}
+#button_play{
+    border: 2px solid rgb(100, 90, 30);
+    background-color: rgba(255, 255, 255);
+    color: rgb(180, 164, 59);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 10px 25px;
 }

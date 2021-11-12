@@ -54,6 +54,13 @@ body{
 .bold{
     font-weight: bold;
 }
+.align_item{
+    align-items: center;
+}
+.text_align_center{
+    text-align: center;
+}
+/* justify-content: space-between; */
 .dec_none{
     text-decoration: none;
 }
@@ -62,20 +69,22 @@ body{
     border-radius: 3%;
     padding: 5px;
 }
-/* COLOR */
+/* TEXT COLORS */
 .gold{
     color: rgb(75, 67, 20);
 }
 .white{
     color: rgb(235, 235, 235);
 }
+
+/* BG COLORS */
 .bg_blue1{
     background-color: rgba(7,14,32,255);
 }
 .bg_blue2{
     background-color: #153144;
 }
-h1{
-    margin: 0%;
-    text-transform: uppercase;
+.bg_blue3{
+    background-color: #102838;
 }
+
