@@ -49,8 +49,12 @@ h1{
 
 /* SECTION 2 */
 .text_imp{
-    font-size: 1.3em;
+    font-size: 1.5em;
     text-align: center;
+    margin: 0 30px;
+}
+#text_imp_s2H{
+    width: 200px;
 }
 #text_GC{
     margin: 0 10%;
@@ -75,4 +79,10 @@ h1{
     font-weight: bold;
     font-size: 1.5em;
     padding: 10px 25px;
+}
+
+span{
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(180, 164, 59);
 }
