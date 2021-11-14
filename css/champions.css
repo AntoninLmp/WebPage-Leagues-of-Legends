@@ -1,51 +1,48 @@
+/* Naviagtion bar */
+
 #barre_nav_champion {
-    display: flex;
     border: solid 2px white;
+    border-radius: 10px;
+    margin-top: 1%;
+    height: 80px;
+}
+
+#barre_nav_champion ul {
+    display: flex;
     justify-content: center;
-    padding: 1%;
-    border-radius: 10px;
-    background-color: transparent;
-    height: 3em;
+    list-style: none;
 }
 
-#barre_nav_champion input {
-    display: flex;
-    border: solid 2px white;
-    justify-content: left;
-    padding: 1%;
-    border-radius: 10px;
-    background-color: transparent;
-}
-
-#liste_champion {
-    width: 90%;
-    margin: 0;
-    text-align: center;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
-#liste_champion li {
-    display: inline;
+#barre_nav_champion ul li {
     padding: 5px 2%;
-    font-size: medium;
     background-color: transparent;
 }
 
-#liste_champion li button {
+#barre_nav_champion ul li button {
     background-color: transparent;
     border-color: transparent;
     color: white;
     font-size: 20px;
+    text-decoration: none;
 }
 
-#liste_champion li button:hover {
+#barre_nav_champion ul li button:hover {
     font-size: 150%;
 }
 
+@media only screen and (max-width: 1000px) {
+    #barre_nav_champion {
+        border: transparent;
+        height: 350px;
+    }
+    #barre_nav_champion ul {
+        flex-direction: column;
+        text-align: center;
+    }
+}
 
-/* affichage personnage*/
+
+/* show personnage*/
 
 #personnage {
     margin: 1em;
