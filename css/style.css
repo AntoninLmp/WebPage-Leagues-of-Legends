@@ -1,0 +1,96 @@
+body{
+    font-family : 'Source Sans Pro', sans-serif;
+    /* background-image: url("../Images/textures-league.jpg"); */
+    background-size: cover;
+    background-color: white;
+    margin: 0;
+}
+
+/* HEADER */
+.header_container{
+    background-color: white;
+    border-radius: 20px;
+    margin: 0 10%; 
+    padding: 5px 5px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+.img_logo{
+    width: 150px;
+    height: 70px;
+}
+.navbar_header{
+    border-radius: 5px;
+    color: rgb(75, 67, 20);
+    padding: 12px;
+    font-size: 25px;
+    text-decoration: none;
+}
+.navbar_header:hover{
+    color: rgb(124, 111, 37);
+    font-size: 28px;
+}
+.nav_list{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+
+/* FOOTER */
+.footer_container{
+    background-color: rgb(235, 235, 235);
+    text-align: center;
+}
+.item_footer{
+    color: black;
+    padding: 1.3em; 
+}
+
+/* MORE GENERIC AND REUSABLE CLASS */
+.displayFlex{
+    display: flex;
+}
+.bold{
+    font-weight: bold;
+}
+.align_item{
+    align-items: center;
+}
+.text_align_center{
+    text-align: center;
+}
+/* justify-content: space-between; */
+.dec_none{
+    text-decoration: none;
+}
+.border_b1s{    
+    border: 1px solid black;
+    border-radius: 3%;
+    padding: 5px;
+}
+/* TEXT COLORS */
+.gold{
+    color: rgb(75, 67, 20);
+}
+.white{
+    color: rgb(235, 235, 235);
+}
+
+/* BG COLORS */
+.bg_blue1{
+    background-color: rgba(7,14,32,255);
+}
+.bg_blue2{
+    background-color: #153144;
+}
+.bg_blue3{
+    background-color: #102838;
+}
+
