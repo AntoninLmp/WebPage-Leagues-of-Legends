@@ -1,0 +1,34 @@
+<!-- 
+    - difference with html file
+- we can use multi partial view to form one html file  
+- simple view ocde to DISPLAY DATA
+- view does NOT depend on the controller
+- receives : array with the name 'favourites', objects with catagory+thing
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>HELLO demo page for Expresse.js</title>
+</head>
+
+<body>
+    <h1>Hello, Express World In a View !</h1>
+    <h2>My favourites things are ...</h2>
+    <div id="favourites">
+        <% if (favourites.length){ %>
+            <p>I have favourites</p>
+            <% for(var fav of favourites){ %>
+                <p><strong><%= fav.category %>  %> </strong>
+                    <%= fav.thing %>
+                </p>
+                <% } %>
+                    <% } %>
+    </div>
+</body>
+
+</html>
