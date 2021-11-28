@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/champions.css">
+    <title>Champions</title>
+</head>
+
+<body>
+    <%- include('header') %>
+        <main>
+            <div id="barre_nav_champion">
+                <ul>
+                    <li>
+                        <a href='/champions/list'>Tout</a>
+                    </li>
+                    <li>
+                        <a href='/champions/Fighter'>Fighter</a>
+                    </li>
+                    <li>
+                        <a href='/champions/Mage'>Mage</a>
+                    </li>
+                    <li>
+                        <a href='/champions/Assassin'>Assassin</a>
+                    </li>
+                    <li>
+                        <a href='/champions/Tank'>Tank</a>
+                    </li>
+                    <li>
+                        <a href='/champions/Marksman'>Marksman</a>
+                    </li>
+                    <li>
+                        <a href='/champions/Support'>Support</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="personnage">
+                <% for (var c of champions) { %>
+                    <div><img src="<%= c.icon %>" alt="icon champion"></div>
+
+                    <% } %>
+            </div>
+            <div id="champion"></div>
+        </main>
+        <%- include('footer') %>
+
+</body>
+
+</html>
