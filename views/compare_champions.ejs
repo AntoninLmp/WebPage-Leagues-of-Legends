@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Compare champions</title>
+</head>
+
+<body>
+    <%- include('header') %>
+        <p><a href='/champions'>Back to the list</a></p>
+        <table>
+            <thead>
+
+                <tr>
+                    <th colspan="3">Compare table</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td><img src="<%= champion1.icon %>" alt="icon champion 1"></td>
+                    <td><img src="<%= champion2.icon %>" alt="icon champion 2"></td>
+                </tr>
+                <tr>
+                    <td>Key:</td>
+                    <td>
+                        <%= champion1.key %>
+                    </td>
+                    <td>
+                        <%= champion2.key %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <%= champion1.name %>
+                    </td>
+                    <td>
+                        <%= champion2.name %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Title:</td>
+                    <td>
+                        <%= champion1.title %>
+                    </td>
+                    <td>
+                        <%= champion2.title %>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Category:</td>
+                    <td>
+                        <%= champion1['tags/0'] %>
+                    </td>
+                    <td>
+                        <%= champion2['tags/0'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>HP:</td>
+                    <td>
+                        <%= champion1['stats/hp'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/hp'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>HP per level:</td>
+                    <td>
+                        <%= champion1['stats/hpperlevel'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/hpperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MP:</td>
+                    <td>
+                        <%= champion1['stats/mp'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/mp'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MP per level:</td>
+                    <td>
+                        <%= champion1['stats/mpperlevel'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/mpperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Move speed:</td>
+                    <td>
+                        <%= champion1['stats/movespeed'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/movespeed'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Armor:</td>
+                    <td>
+                        <%= champion1['stats/armor'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/armor'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Armor per level:</td>
+                    <td>
+                        <%= champion1['stats/armorperlevel'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/armorperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Spell block:</td>
+                    <td>
+                        <%= champion1['stats/spellblock'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/spellblock'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Spell block per level:</td>
+                    <td>
+                        <%= champion1['stats/spellblockperlevel'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/spellblockperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Attack range:</td>
+                    <td>
+                        <%= champion1['stats/attackrange'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/attackrange'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>HP regen:</td>
+                    <td>
+                        <%= champion1['stats/hpregen'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/hpregen'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>HP regen per level:</td>
+                    <td>
+                        <%= champion1['stats/hpregenperlevel'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/hpregenperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MP regen:</td>
+                    <td>
+                        <%= champion1['stats/mpregen'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/mpregen'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MP regen per level:</td>
+                    <td>
+                        <%= champion1['stats/mpregenperlevel'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/mpregenperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Crit:</td>
+                    <td>
+                        <%= champion1['stats/crit'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/crit'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Crit per level:</td>
+                    <td>
+                        <%= champion1['stats/critperlevel'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/critperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Attack damage:</td>
+                    <td>
+                        <%= champion1['stats/attackdamage'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/attackdamage'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Attack damage per level:</td>
+                    <td>
+                        <%= champion1['stats/attackdamageperlevel'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/attackdamageperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Attack speed per level:</td>
+                    <td>
+                        <%= champion1['stats/attackspeedperlevel'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/attackspeedperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Attack speed:</td>
+                    <td>
+                        <%= champion1['stats/attackspeed'] %>
+                    </td>
+                    <td>
+                        <%= champion2['stats/attackspeed'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td>
+                        <%= champion1.description %>
+                    </td>
+                    <td>
+                        <%= champion2.description %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <%- include('footer') %>
+
+</body>
+
+</html>
