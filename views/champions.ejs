@@ -38,11 +38,16 @@
                     </li>
                 </ul>
             </div>
-            <div id="personnage"></div>
+            <div id="personnage">
+                <% for (var c of champions) { %>
+                    <div><img src="<%= c.icon %>" alt="icon champion"></div>
+
+                    <% } %>
+            </div>
             <div id="champion"></div>
         </main>
         <%- include('footer') %>
-            <script src='/utils/champions.js' type='text/javascript'></script>
+
 </body>
 
 </html>
