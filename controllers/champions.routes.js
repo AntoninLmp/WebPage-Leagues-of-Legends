@@ -4,21 +4,25 @@
 
       router.get('/', championRootAction);
       router.get('/list', listCampions);
+      router.get('/category/:championCategory', listOneCategorychampion);
 
       // http://localhost:9000/champions
       function championRootAction(request, response) {
-          response.redirect("/champions/list");
+          response.redirect("champions/list");
       }
 
       async function listCampions(request, response) {
 
           var champions = await championsRepo.getAllChampions()
-          console.log(champions)
           var flashMessage = request.session.flashMessage;
           request.session.flashMessage = ""
 
           response.render("champions", { "champions": champions, "flashMessage": flashMessage });
+      }
 
+      async function listOneCategorychampion(request, response) {
+          var champions = await championsRepo.getCategoryChampion(request.params.championCategory);
+          response.render("champions", { "champions": champions });
       }
 
       module.exports = router;

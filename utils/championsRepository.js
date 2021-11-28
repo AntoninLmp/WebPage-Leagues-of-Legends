@@ -311,92 +311,78 @@ btnTanks.onclick = function() {
 } */
 
 // utils/cars.repository.js
-pool = require("./db.js");
-// JS include = relative to CONTROLLERS 
-// VIEW include = relative to VIEWS
+pool = require("./db.js")
+    // JS include = relative to CONTROLLERS 
+    // VIEW include = relative to VIEWS
 module.exports = {
     getChampionModel() { // defines the entity model
         return {
             "name": "XXXX",
             "tags/0": 0
-        };
+        }
     },
-    async getAllChampions() { // TODO? move to brands.repository.js
+    async getAllChampions() {
         try {
-            conn = await pool.getConnection();
-            sql = "SELECT icon FROM champions ;";
-            const rows = await conn.query(sql);
-            conn.end();
-            return rows;
+            conn = await pool.getConnection()
+            sql = "SELECT icon FROM champions;"
+            const rows = await conn.query(sql)
+            conn.end()
+            console.log("ROWS FETCHED: " + rows.length)
+            return rows
         } catch (err) {
-            // TODO: log/send error ... 
-            throw err; // return false ???
+            console.log(err)
+            throw err
+        }
+    },
+    async getCategoryChampion(championCategory) {
+        try {
+            conn = await pool.getConnection()
+            sql = "SELECT icon FROM champions WHERE `tags/0` = ?"
+            const rows = await conn.query(sql, championCategory)
+            conn.end()
+            console.log("ROWS FETCHED: " + rows.length)
+            return rows
+        } catch (err) {
+            console.log(err)
+            throw err
         }
     }
-    /* ,async getAllCars() {
-        try {
-            conn = await pool.getConnection();
-            sql = "SELECT * FROM cars INNER JOIN brands ON car_brand=brand_id";
-            const rows = await conn.query(sql);
-            conn.end();
-            console.log("ROWS FETCHED: " + rows.length);
-            return rows;
-        } catch (err) {
-            throw err;
-        }
-    },
-    async getOneCar(carId) {
-        try {
-            conn = await pool.getConnection();
-            // sql = "SELECT * FROM cars INNER JOIN brands ON car_brand=brand_id WHERE car_id = "+carId; // SQL INJECTION => !!!!ALWAYS!!!! sanitize user input!
-            // escape input OR prepared statements OR use orm
-            sql = "SELECT * FROM cars INNER JOIN brands ON car_brand=brand_id WHERE car_id = ?";
-            const rows = await conn.query(sql, carId);
-            conn.end();
-            console.log("ROWS FETCHED: " + rows.length);
-            if (rows.length == 1) {
-                return rows[0];
-            } else {
-                return false;
-            }
-        } catch (err) {
-            throw err;
-        }
-    },
+
+    /* ,
     async delOneCar(carId) {
         try {
-            conn = await pool.getConnection();
-            sql = "DELETE FROM cars WHERE car_id = ?";
-            const okPacket = await conn.query(sql, carId); // affectedRows, insertId
-            conn.end();
-            console.log(okPacket);
-            return okPacket.affectedRows;
+            conn = await pool.getConnection()
+            sql = "DELETE FROM cars WHERE car_id = ?"
+            const okPacket = await conn.query(sql, carId) // affectedRows, insertId
+            conn.end()
+            console.log(okPacket)
+            return okPacket.affectedRows
         } catch (err) {
-            throw err;
+            throw err
         }
     },
     async addOneCar(brandId) {
         try {
-            conn = await pool.getConnection();
-            sql = "INSERT INTO cars (car_id, car_brand) VALUES (NULL, ?) ";
-            const okPacket = await conn.query(sql, brandId); // affectedRows, insertId
-            conn.end();
-            console.log(okPacket);
-            return okPacket.insertId;
+            conn = await pool.getConnection()
+            sql = "INSERT INTO cars (car_id, car_brand) VALUES (NULL, ?) "
+            const okPacket = await conn.query(sql, brandId) // affectedRows, insertId
+            conn.end()
+            console.log(okPacket)
+            return okPacket.insertId
         } catch (err) {
-            throw err;
+            throw err
         }
     },
     async editOneCar(carId, carBrand, carName, carBaseprice, carIsfancy, carRealprice) {
         try {
-            conn = await pool.getConnection();
-            sql = "UPDATE cars SET car_brand=?, car_name=?, car_baseprice=?, car_isFancy=?, car_realPrice=? WHERE car_id=? "; // TODO: named parameters? :something
-            const okPacket = await conn.query(sql, [carBrand, carName, carBaseprice, carIsfancy, carRealprice, carId]);
-            conn.end();
-            console.log(okPacket);
-            return okPacket.affectedRows;
+            conn = await pool.getConnection()
+            sql = "UPDATE cars SET car_brand=?, car_name=?, car_baseprice=?, car_isFancy=?, car_realPrice=? WHERE car_id=? " // TODO: named parameters? :something
+            const okPacket = await conn.query(sql, [carBrand, carName, carBaseprice, carIsfancy, carRealprice, carId])
+            conn.end()
+            console.log(okPacket)
+            return okPacket.affectedRows
         } catch (err) {
-            throw err;
+            throw err
         }
     }*/
-};
+}
