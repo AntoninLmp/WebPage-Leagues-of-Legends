@@ -18,7 +18,7 @@
     background-color: transparent;
 }
 
-#barre_nav_champion ul li button {
+#barre_nav_champion ul li a {
     background-color: transparent;
     border-color: transparent;
     color: white;

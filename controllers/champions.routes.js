@@ -4,7 +4,7 @@
 
       router.get('/', championRootAction);
       router.get('/list', listCampions);
-      router.get('/category/:championCategory', listOneCategorychampion);
+      router.get('/:championCategory', listOneCategorychampion);
 
       // http://localhost:9000/champions
       function championRootAction(request, response) {
