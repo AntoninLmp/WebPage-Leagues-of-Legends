@@ -66,6 +66,12 @@ body{
 .text_align_center{
     text-align: center;
 }
+.justify{
+    text-align: justify;
+}
+.padding{
+    padding: 0px 20px 15px 20px;
+}
 /* justify-content: space-between; */
 .dec_none{
     text-decoration: none;
