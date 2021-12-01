@@ -66,6 +66,15 @@ body{
 .text_align_center{
     text-align: center;
 }
+.justify{
+    text-align: justify;
+}
+.center{
+    text-align: center;
+}
+.padding{
+    padding: 0px 20px 15px 20px;
+}
 /* justify-content: space-between; */
 .dec_none{
     text-decoration: none;
@@ -78,6 +87,9 @@ body{
 /* TEXT COLORS */
 .gold{
     color: rgb(75, 67, 20);
+}
+.gold_2{
+    color: rgb(180, 164, 59);
 }
 .white{
     color: rgb(235, 235, 235);
