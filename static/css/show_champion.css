@@ -1,0 +1,36 @@
+main{
+    background-color: rgb(20, 32, 61);
+    padding: 50px 0;
+}
+#button_show {
+    text-align: center;
+}
+#button_show button{
+    margin: 20px;
+    font-size: large;
+    padding: 5px;
+    border-radius: 3px;
+}
+#button_show button:hover{
+    background-color: rgb(94, 94, 94);
+}
+#button_show button a{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/* TABLE */
+table{
+    margin: 0 25%;
+    border-collapse: collapse;
+    color: white;
+}
+td{
+    padding: 0.5em;
+    border: 2px solid rgb(165, 151, 72);
+    text-align: center;
+}
+td:nth-child(2n-1){
+    justify-content: left;
+}

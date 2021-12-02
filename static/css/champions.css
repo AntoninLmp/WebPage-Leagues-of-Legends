@@ -1,7 +1,13 @@
-/* Naviagtion bar */
+main{
+    background-color: rgba(7,14,32);
+    padding: 1em;
+    color: white;
+}
 
+/* Naviagtion bar */
 #barre_nav_champion {
     border: solid 2px black;
+    border: solid 5px rgb(75, 67, 20);
     border-radius: 10px;
     margin-top: 1%;
     height: 80px;
@@ -23,11 +29,19 @@
     border-color: transparent;
     color: black;
     font-size: 20px;
-    text-decoration: none;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    font-size: 1.8em;
+    text-decoration: none;  
 }
 
 #barre_nav_champion ul li a:hover {
-    font-size: 150%;
+    font-size: 2em;
+}
+#personnage button{
+    padding: 0;
+    margin: 2px;
+    height: 124px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -43,7 +57,6 @@
 
 
 /* show personnage*/
-
 #personnage {
     margin: 1em;
     display: flex;
