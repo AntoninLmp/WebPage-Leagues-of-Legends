@@ -5,35 +5,35 @@ var pool = require("./db.js")
 module.exports = {
     getChampionModel() { // defines the entity model
         return {
-            "id": "X",
-            "key": 0,
+            "id_champion": "X",
+            "key_champion": 0,
             "name": "X",
             "title": "X",
-            "tags/0": "X",
-            "tags/1": "X",
-            "stats/hp": 0,
-            "stats/mp": 0,
-            "stats/mpperlevel": 0,
-            "stats/movespeed ": 0,
-            "stats/armor": 0,
-            "stats/armorperlevel": 0,
-            "stats/spellblock": 0,
-            "stats/spellblockperlevel ": 0,
-            "stats/attackrange ": 0,
-            "stats/hpregen ": 0,
-            "stats/hpregenperlevel ": 0,
-            "stats/mpregen": 0,
-            "stats/mpregenperlevel": 0,
-            "stats/crit ": 0,
-            "stats/critperlevel": 0,
-            "stats/attackdamage ": 0,
-            "stats/attackdamageperlevel": 0,
-            "stats/attackspeedperlevel ": 0,
-            "stats/attackspeed ": 0,
+            "tags_0": "X",
+            "tags_1": "X",
+            "hp": 0,
+            "mp": 0,
+            "mpperlevel": 0,
+            "movespeed ": 0,
+            "armor": 0,
+            "armorperlevel": 0,
+            "spellblock": 0,
+            "spellblockperlevel ": 0,
+            "attackrange ": 0,
+            "hpregen ": 0,
+            "hpregenperlevel ": 0,
+            "mpregen": 0,
+            "mpregenperlevel": 0,
+            "crit ": 0,
+            "critperlevel": 0,
+            "attackdamage ": 0,
+            "attackdamageperlevel": 0,
+            "attackspeedperlevel ": 0,
+            "attackspeed ": 0,
             "icon": "X",
-            "sprite/url": "X",
-            "sprite/x": 0,
-            "sprite/y": 0,
+            "sprite_url": "X",
+            "sprite_x": 0,
+            "sprite_y": 0,
             "description": "X"
         }
     },
@@ -53,7 +53,7 @@ module.exports = {
     async getCategoryChampion(championCategory) {
         try {
             conn = await pool.getConnection()
-            sql = "SELECT * FROM champions WHERE `tags/0` = ?"
+            sql = "SELECT * FROM champions WHERE tags_0 = ?"
             const rows = await conn.query(sql, championCategory)
             conn.end()
             console.log("ROWS FETCHED: " + rows.length)
@@ -66,7 +66,7 @@ module.exports = {
     async getOneChampion(championId) {
         try {
             conn = await pool.getConnection()
-            sql = "SELECT * FROM champions WHERE `id` = ?"
+            sql = "SELECT * FROM champions WHERE id_champion = ?"
             const rows = await conn.query(sql, championId)
             conn.end()
             console.log("ROWS FETCHED: " + rows.length)
