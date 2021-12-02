@@ -16,32 +16,32 @@
             <div id="barre_nav_champion">
                 <ul>
                     <li>
-                        <a href='/champions/choose/<%= champion1.id %>/all<'>Tout</a>
+                        <a href='/champions/choose/<%= champion1.id_champion %>/list<'>Tout</a>
                     </li>
                     <li>
-                        <a href='/champions/choose/<%= champion1.id %>/fighter'>Fighter</a>
+                        <a href='/champions/choose/<%= champion1.id_champion %>/Fighter'>Fighter</a>
                     </li>
                     <li>
-                        <a href='/champions/choose/<%= champion1.id %>/mage'>Mage</a>
+                        <a href='/champions/choose/<%= champion1.id_champion %>/Mage'>Mage</a>
                     </li>
                     <li>
-                        <a href='/champions/choose/<%= champion1.id %>/assassin'>Assassin</a>
+                        <a href='/champions/choose/<%= champion1.id_champion %>/Assassin'>Assassin</a>
                     </li>
                     <li>
-                        <a href='/champions/choose/<%= champion1.id %>/tank'>Tank</a>
+                        <a href='/champions/choose/<%= champion1.id_champion %>/Tank'>Tank</a>
                     </li>
                     <li>
-                        <a href='/champions/choose/<%= champion1.id %>/marksman'>Marksman</a>
+                        <a href='/champions/choose/<%= champion1.id_champion %>/Marksman'>Marksman</a>
                     </li>
                     <li>
-                        <a href='/champions/choose/<%= champion1.id %>/support'>Support</a>
+                        <a href='/champions/choose/<%= champion1.id_champion %>/Support'>Support</a>
                     </li>
                 </ul>
             </div>
             <div id="personnage">
                 <!-- recieve champions { id= .. name=...} -->
                 <% for (var c of champions) { %>
-                    <button><a href="/champions/compare/<%= champion1.id %>/<%= c.id %>"><img src="<%= c.icon %>"
+                    <button><a href="/champions/compare/<%= champion1.id_champion %>/<%= c.id_champion %>"><img src="<%= c.icon %>"
                                 alt="icon champion"></a></button>
 
                     <% } %>
