@@ -14,40 +14,173 @@
         <p><a href='/champions'>Back to the list</a></p>
         <table>
             <thead>
+
                 <tr>
-                    <th colspan="2"><img src="<%= oneChampion.icon %>" alt="icon champion"></th>
+                    <th colspan="2" scope="col">Characteristics of the character</th>
                 </tr>
             </thead>
             <tbody>
-
+                <tr>
+                    <td></td>
+                    <td><img src="<%= champion.icon %>" alt="icon champion 1"></td>
+                </tr>
+                <tr>
+                    <td>Key:</td>
+                    <td>
+                        <%= champion.key %>
+                    </td>
+                </tr>
                 <tr>
                     <td>Name:</td>
                     <td>
-                        <%= oneChampion.name %>
+                        <%= champion.name %>
                     </td>
                 </tr>
                 <tr>
                     <td>Title:</td>
                     <td>
-                        <%= oneChampion.title %>
+                        <%= champion.title %>
                     </td>
-
+                <tr>
+                    <td>Description:</td>
+                    <td>
+                        <%= champion.description %>
+                    </td>
+                </tr>
                 </tr>
                 <tr>
                     <td>Category:</td>
                     <td>
-                        <%= oneChampion['tags/0'] %>
+                        <%= champion['tags/0'] %>
                     </td>
                 </tr>
                 <tr>
-                    <td>Description:</td>
+                    <td>HP:</td>
                     <td>
-                        <%= oneChampion.description %>
+                        <%= champion['stats/hp'] %>
                     </td>
                 </tr>
+                <tr>
+                    <td>HP per level:</td>
+                    <td>
+                        <%= champion['stats/hpperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MP:</td>
+                    <td>
+                        <%= champion['stats/mp'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MP per level:</td>
+                    <td>
+                        <%= champion['stats/mpperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Move speed:</td>
+                    <td>
+                        <%= champion['stats/movespeed'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Armor:</td>
+                    <td>
+                        <%= champion['stats/armor'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Armor per level:</td>
+                    <td>
+                        <%= champion['stats/armorperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Spell block:</td>
+                    <td>
+                        <%= champion['stats/spellblock'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Spell block per level:</td>
+                    <td>
+                        <%= champion['stats/spellblockperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Attack range:</td>
+                    <td>
+                        <%= champion['stats/attackrange'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>HP regen:</td>
+                    <td>
+                        <%= champion['stats/hpregen'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>HP regen per level:</td>
+                    <td>
+                        <%= champion['stats/hpregenperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MP regen:</td>
+                    <td>
+                        <%= champion['stats/mpregen'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MP regen per level:</td>
+                    <td>
+                        <%= champion['stats/mpregenperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Crit:</td>
+                    <td>
+                        <%= champion['stats/crit'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Crit per level:</td>
+                    <td>
+                        <%= champion['stats/critperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Attack damage:</td>
+                    <td>
+                        <%= champion['stats/attackdamage'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Attack damage per level:</td>
+                    <td>
+                        <%= champion['stats/attackdamageperlevel'] %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Attack speed per level:</td>
+                    <td>
+                        <%= champion['stats/attackspeedperlevel'] %>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Attack speed:</td>
+                    <td>
+                        <%= champion['stats/attackspeed'] %>
+                    </td>
+
+                </tr>
+
             </tbody>
         </table>
-        <p><a href='/champions/compare/<%= oneChampion.id %>'>Compare</a></p>
+
+        <p><a href='/champions/choose/<%= champion.id %>/all'>Compare</a></p>
         <%- include('footer') %>
 
 
