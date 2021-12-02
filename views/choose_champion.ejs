@@ -16,32 +16,33 @@
             <div id="barre_nav_champion">
                 <ul>
                     <li>
-                        <a href='/champions/list'>Tout</a>
+                        <a href='/champions/choose/<%= champion1.id %>/all<'>Tout</a>
                     </li>
                     <li>
-                        <a href='/champions/Fighter'>Fighter</a>
+                        <a href='/champions/choose/<%= champion1.id %>/fighter'>Fighter</a>
                     </li>
                     <li>
-                        <a href='/champions/Mage'>Mage</a>
+                        <a href='/champions/choose/<%= champion1.id %>/mage'>Mage</a>
                     </li>
                     <li>
-                        <a href='/champions/Assassin'>Assassin</a>
+                        <a href='/champions/choose/<%= champion1.id %>/assassin'>Assassin</a>
                     </li>
                     <li>
-                        <a href='/champions/Tank'>Tank</a>
+                        <a href='/champions/choose/<%= champion1.id %>/tank'>Tank</a>
                     </li>
                     <li>
-                        <a href='/champions/Marksman'>Marksman</a>
+                        <a href='/champions/choose/<%= champion1.id %>/marksman'>Marksman</a>
                     </li>
                     <li>
-                        <a href='/champions/Support'>Support</a>
+                        <a href='/champions/choose/<%= champion1.id %>/support'>Support</a>
                     </li>
                 </ul>
             </div>
             <div id="personnage">
                 <!-- recieve champions { id= .. name=...} -->
                 <% for (var c of champions) { %>
-                    <button><a href="/champions/compare/<%= champion1.id %>/<%= c.id %>"><img src="<%= c.icon %>" alt="icon champion"></a></button>
+                    <button><a href="/champions/compare/<%= champion1.id %>/<%= c.id %>"><img src="<%= c.icon %>"
+                                alt="icon champion"></a></button>
 
                     <% } %>
             </div>
