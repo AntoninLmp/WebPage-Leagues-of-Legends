@@ -23,20 +23,41 @@
             <section id="form_register_team">
                 <form>
                     <div>
-                        <label for="InputEmail">Email address</label>
-                        <input type="email" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                            else.</small>
+                        <label for="InputEmail">Name of The Team</label>
+                        <input type="email" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter name">
+                    </div>
+                    <div class="laner">
+                        <div>
+                            <label for="topLane">Top Laner</label>
+                            <input type="text" id="topLane">
+                        </div>
+                        <div>
+                            <label for="MidLane">Mid Laner</label>
+                            <input type="text" id="MidLane">
+                        </div>
+                        <div>
+                            <label for="BotLaneADC">Attack Damage Carry, (bot lane)</label>
+                            <input type="text" id="BotLaneADC">
+                        </div>
+                        <div>
+                            <label for="BotLaneSupport">Support, (bot lane)</label>
+                            <input type="text" id="BotLaneSupport">
+                        </div>
+                        <div>
+                            <label for="JungleLane">Jungle Laner</label>
+                            <input type="text" id="JungleLane">
+                        </div>
                     </div>
                     <div>
-                        <label for="InputPassword">Password</label>
-                        <input type="password" id="InputPassword" placeholder="Password">
+                        <label for="continent">What continent are you from?</label>
+                        <select name="continent" id="contient">
+                            <option value="Europe">Europe</option>
+                            <option value="China">China</option>
+                            <option value="North America">North America</option>
+                            <option value="Korean">Korean</option>
+                        </select>
                     </div>
-                    <div>
-                        <input type="checkbox" id="Check1">
-                        <label for="Check1">Check me out</label>
-                    </div>
-                    <button type="submit">Submit</button>
+                    <button type="submit" id="submitButton">Submit</button>
                 </form>
             </section>
         </main>

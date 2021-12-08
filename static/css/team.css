@@ -15,7 +15,46 @@ main{
 }
 #form_register_team{
     padding: 0 3%;
-    margin: 0 3%;
+    margin: 0 9%;
     border: 5px solid white;
     border-radius: 10px 100px / 120px;
+}
+form{
+    text-align: center;
+    padding: 1.5em;
+    display: inline-block;
+}
+form div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+label{
+    font-size: 1.3em;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+input, select{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: .375rem .75rem;
+    min-width: 200px;
+}
+.laner{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#submitButton{
+    border: 2px solid rgb(100, 90, 30);
+    background-color: rgba(255, 255, 255);
+    color: rgb(180, 164, 59);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 10px 25px;
+}
+#submitButton:hover{
+    background-color: rgb(212, 212, 212);
 }
