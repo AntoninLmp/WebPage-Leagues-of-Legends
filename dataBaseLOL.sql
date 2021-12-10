@@ -244,5 +244,4 @@ INSERT INTO player VALUES
 
 SELECT * FROM player; 
 SELECT * FROM team; 
-SELECT * FROM game_caractere; 
 
