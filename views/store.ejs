@@ -5,11 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="/static/Images/icons/lol-league-of-Legends-logo.png">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/store.css">
+    <title>Store League of Legend</title>
 </head>
 
 <body>
     <%- include('header') %>
+        <section>
+            <form action="" method="" id="f">
+                <div class="fields">
+                    <input type="text" name="user_name" id="userName" placeholder="User Name" required>
+                    <input type="password" name="user_prenom" id="password" placeholder="*******" required>
+                    <select name="role" id="role_select">
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="submit" id="myButton" value="Ajouter"></input>
+                </div>
+            </form>
+        </section>
+
+        <%- include('footer') %>
 
 </body>
 
