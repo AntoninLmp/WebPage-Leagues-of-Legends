@@ -10,10 +10,10 @@ const pool = mariadb.createPool({
 
 module.exports = {
     getConnection() {
-        return new Promise(function(result, reject) {
-            pool.getConnection().then(function(conn) {
+        return new Promise(function (result, reject) {
+            pool.getConnection().then(function (conn) {
                 result(conn)
-            }).catch(function(error) {
+            }).catch(function (error) {
                 reject(error)
             })
         })
