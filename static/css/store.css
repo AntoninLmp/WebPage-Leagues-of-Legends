@@ -1,0 +1,61 @@
+section{
+    margin: 1em;
+    padding: 10em;
+}
+
+form{
+    box-shadow: 8px 8px 5px rgba(128, 128, 128);
+    border-radius: 3px;
+    margin: auto;
+    padding: 10px;
+    background-color: rgb(179, 176, 176);
+    max-width: 1000px;
+    
+}
+
+.fields{
+    margin-bottom: 7px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+input{
+    margin: 4px;
+    padding: 5px;
+    flex: auto;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid rgba(128, 128, 128);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+select{
+    flex: auto;
+    margin: 4px;
+    padding: 5px;
+}
+
+input[type=submit]{
+    padding: 5px 15px;
+    background-color: white;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 2px 2px grey;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input[type=submit]:hover{
+    background-color: rgb(223, 223, 223);
+}
+
+/* Barre Rouge */
+input[type=text]:invalid, input[type=password]:invalid{
+    border-bottom: 2px solid rgb(201, 58, 58);
+    caret-color: rgb(201, 58, 58);
+}
+
+input[type=text]:valid, input[type=password]:valid{
+    border-bottom: 2px solid rgb(58, 201, 89);
+    caret-color: rgb(58, 201, 89);
+}
