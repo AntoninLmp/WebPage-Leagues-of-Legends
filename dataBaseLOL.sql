@@ -1,22 +1,12 @@
 CREATE DATABASE if not exists leagueOfLengend; 
 USE leagueOfLengend;
 
+DROP TABLE if exists team;
 DROP TABLE if exists player; 
-DROP TABLE if exists team; 
 DROP TABLE if exists champions; 
 
-CREATE TABLE team(
-	team_id int auto_increment PRIMARY KEY, 
-    team_name varchar(100),
-    team_gamePlay int NOT NULL,
-    team_victory int NOT NULL, 
-    team_defeat int NOT NULL,
-    team_continent varchar(100),
-    team_numbMember int NOT NULL
-);
-
 CREATE TABLE champions(
-    id_champion varchar(100) PRIMARY KEY,
+    id_champion varchar(100),
     key_champion int,
     name varchar(100),
     title varchar(100),
@@ -49,33 +39,41 @@ CREATE TABLE champions(
     description varchar(1000) 
 );
 
-
 CREATE TABLE player (
 	player_id int auto_increment PRIMARY KEY,
 	player_firstName varchar(100),
     player_lastName varchar(100),
     player_pseudo varchar(100),
     player_country varchar(100),
-    player_team int NOT NULL,    
-    player_favCaract varchar(100),
-    CONSTRAINT fk_team FOREIGN KEY (player_team) REFERENCES team(team_id),
-    CONSTRAINT fk_favCaract FOREIGN KEY (player_favCaract) REFERENCES champions(id_champion)
+    player_team int,
+    player_favCaract varchar(100)
 );
 
+CREATE TABLE team(
+	team_id int auto_increment PRIMARY KEY, 
+    team_name varchar(100),
+    team_victory int NOT NULL, 
+    team_defeat int NOT NULL,
+    team_continent varchar(100),
+    player_top int,
+    player_mid int,
+    player_adc int,
+    player_support int,
+    CONSTRAINT fk_top FOREIGN KEY (player_top) REFERENCES player(player_id),
+    CONSTRAINT fk_mid FOREIGN KEY (player_mid) REFERENCES player(player_id),
+    CONSTRAINT fk_adc FOREIGN KEY (player_adc) REFERENCES player(player_id),
+    CONSTRAINT fk_support FOREIGN KEY (player_support) REFERENCES player(player_id)
+
+);
+
+ALTER TABLE player 
+ADD CONSTRAINT FK_player_player_team
+  FOREIGN KEY(player_team) 
+  REFERENCES team(team_id);
+
+
+
 /* https://www.rotowire.com/esports/team-stats-lol.php?league=297&series= */
-INSERT INTO team VALUES 
-
-	(1,"T1",69, 49, 20, "Korean",7),
-    (2,"Cloud9", 86, 47, 39, "USA",6),
-    (3,"Fnatic", 78, 43, 35, "Europe",7),
-    (4,"G2 Esport", 68, 37, 31, "Europe",7),
-    (5,"Edward Gaming", 58, 31, 27, "China",7),
-    (6,"Royal Never Give Up", 46, 27, 19, "China",7),
-    (7,"FunPlus Phoenix ", 23, 16, 7, "China",7),
-    (8,"Team Liquid", 26, 14, 12, "USA",7),
-    (9,"Unicorn of Love", 30, 12, 18, "Europe",7),
-    (10,"Hanwha Life Esports", 10, 7,3, "korean",7);
-
 
 INSERT INTO champions VALUES ('aatrox', '266', 'Aatrox', 'the Darkin Blade', 'Fighter', 'Tank', '580', '90', '0', '0', '345', '38', '3.25', '32.1', '1.25', '175', '3', '1', '0', '0', '0', '0', '60', '5', '2.5', '0.651', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Aatrox.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion0.png', '0', '0', 'Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find...'),
  ('ahri', '103', 'Ahri', 'the Nine-Tailed Fox', 'Mage', 'Assassin', '526', '92', '418', '25', '330', '20.88', '3.5', '30', '0.5', '550', '5.5', '0.6', '8', '0.8', '0', '0', '53.04', '3', '2', '0.668', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Ahri.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion0.png', '48', '0', 'Innately connected to the latent power of Runeterra, Ahri is a vastaya who can reshape magic into orbs of raw energy. She revels in toying with her prey by manipulating their emotions before devouring their life essence. Despite her predatory nature...'),
@@ -230,18 +228,4 @@ INSERT INTO champions VALUES ('aatrox', '266', 'Aatrox', 'the Darkin Blade', 'Fi
  ('zoe', '142', 'Zoe', 'the Aspect of Twilight', 'Mage', 'Support', '560', '92', '425', '25', '340', '20.8', '3.5', '30', '0.5', '550', '6.5', '0.6', '8', '0.65', '0', '0', '58', '3.3', '2.5', '0.625', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Zoe.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion5.png', '0', '0', 'As the embodiment of mischief, imagination, and change, Zoe acts as the cosmic messenger of Targon, heralding major events that reshape worlds. Her mere presence warps the arcane mathematics governing realities, sometimes causing cataclysms without...'),
  ('zyra', '143', 'Zyra', 'Rise of the Thorns', 'Mage', 'Support', '504', '79', '418', '25', '340', '29', '3', '30', '0.5', '575', '5.5', '0.5', '13', '0.4', '0', '0', '53.376', '3.2', '2.11', '0.625', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Zyra.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion5.png', '48', '0', 'Born in an ancient, sorcerous catastrophe, Zyra is the wrath of nature given form—an alluring hybrid of plant and human, kindling new life with every step. She views the many mortals of Valoran as little more than prey for her seeded progeny, and thinks...');;
 
-INSERT INTO player VALUES 
-	(1,"LEE","SANGHYEOK","Faker", "Korean", 1 ,"aatrox"), 
-    (2,"LEE","MINHYUNG","Gumayusi", "Korean", 1 ,"aatrox"),
-    (3,"RAU","GABRIEL","Bwipo", "Belgium", 3 ,"aatrox"),
-    (4,"TIAN","YE","Meiko", "China", 5 ,"aatrox"),
-    (5,"YECHAN","LEE","Scout", "China", 5 ,"aatrox"),
-    (6,"HUANG","ROBERT","Blaber", "USA", 2 ,"aatrox"),
-    (7,"LAFLAMME","PHILIPPE","Vulcan", "USA", 2 ,"aatrox"),
-    (8,"PARK","GI-TAE","Morgan", "Korean", 10 ,"aatrox"),
-    (9,"JO","YONGIN","CoreJJ", "USA", 8 ,"aatrox"),
-    (10,"JENSEN","NICOLAJ","Jensen", "USA", 8 ,"aatrox");
-
-SELECT * FROM player; 
-SELECT * FROM team; 
 
