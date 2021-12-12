@@ -27,9 +27,12 @@
                                 <%= fig.pop_quantity %> pieces
                             </p>
                         </div>
-                        <button type="submit" class="button_buy">
-                            <a href="/store/figurine/<%= fig.pop_id %>">Buy online</a>
-                        </button>
+                        <a href="/store/figurine/buy<%= fig.pop_id %>">
+                            <button type="button" class="button_">Buy online</button>
+                        </a>
+                        <a href="/store/figurine/sell<%= fig.pop_id %>">
+                            <button type="button" class="button_">Sell online</button>
+                        </a>
 
                     </div>
                     <% } %>
