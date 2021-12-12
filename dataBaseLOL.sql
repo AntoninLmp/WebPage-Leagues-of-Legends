@@ -45,15 +45,15 @@ CREATE TABLE player (
     player_lastName varchar(100),
     player_pseudo varchar(100),
     player_country varchar(100),
-    player_team int,
+    player_team varchar(100) ,
     player_favCaract varchar(100)
 );
 
 CREATE TABLE team(
 	team_id int auto_increment PRIMARY KEY, 
     team_name varchar(100),
-    team_victory int NOT NULL, 
-    team_defeat int NOT NULL,
+    team_victory int, 
+    team_defeat int,
     team_continent varchar(100),
     player_top int,
     player_mid int,
@@ -66,10 +66,21 @@ CREATE TABLE team(
 
 );
 
-ALTER TABLE player 
-ADD CONSTRAINT FK_player_player_team
-  FOREIGN KEY(player_team) 
-  REFERENCES team(team_id);
+INSERT INTO player VALUES 
+ 	(1,"LEE","SANGHYEOK","Faker", "Korean", "team" ,"aatrox"), 
+     (2,"LEE","MINHYUNG","Gumayusi", "Korean", "team" ,"aatrox"),
+     (3,"RAU","GABRIEL","Bwipo", "Belgium", "team" ,"aatrox"),
+     (4,"TIAN","YE","Meiko", "China", "team" ,"aatrox"),
+     (5,"YECHAN","LEE","Scout", "China", "team" ,"aatrox"),
+     (6,"HUANG","ROBERT","Blaber", "USA", "team","aatrox"),
+     (7,"LAFLAMME","PHILIPPE","Vulcan", "USA", "team" ,"aatrox"),
+     (8,"PARK","GI-TAE","Morgan", "Korean", "team" ,"aatrox"),
+     (9,"JO","YONGIN","CoreJJ", "USA", "team" ,"aatrox"),
+     (10,"JENSEN","NICOLAJ","Jensen", "USA", "team" ,"aatrox");
+
+INSERT INTO team VALUES (NULL, "exemple", 12,0,"Europe",1,2,3,4);
+INSERT INTO team VALUES (NULL, "exemple2", 65,23,"Europe",5,6,7,8);
+INSERT INTO team VALUES (NULL, "exemple3", 23,43,"Europe",9,10,1,2);
 
 
 
@@ -227,5 +238,13 @@ INSERT INTO champions VALUES ('aatrox', '266', 'Aatrox', 'the Darkin Blade', 'Fi
  ('zilean', '26', 'Zilean', 'the Chronokeeper', 'Support', 'Mage', '504', '82', '452', '50', '335', '24', '3.8', '30', '0.5', '550', '5.5', '0.5', '11.335', '0.8', '0', '0', '51.64', '3', '2.13', '0.625', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Zilean.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion4.png', '432', '96', 'Once a powerful Icathian mage, Zilean became obsessed with the passage of time after witnessing his homeland\'s destruction by the Void. Unable to spare even a minute to grieve the catastrophic loss, he called upon ancient temporal magic to divine all...'),
  ('zoe', '142', 'Zoe', 'the Aspect of Twilight', 'Mage', 'Support', '560', '92', '425', '25', '340', '20.8', '3.5', '30', '0.5', '550', '6.5', '0.6', '8', '0.65', '0', '0', '58', '3.3', '2.5', '0.625', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Zoe.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion5.png', '0', '0', 'As the embodiment of mischief, imagination, and change, Zoe acts as the cosmic messenger of Targon, heralding major events that reshape worlds. Her mere presence warps the arcane mathematics governing realities, sometimes causing cataclysms without...'),
  ('zyra', '143', 'Zyra', 'Rise of the Thorns', 'Mage', 'Support', '504', '79', '418', '25', '340', '29', '3', '30', '0.5', '575', '5.5', '0.5', '13', '0.4', '0', '0', '53.376', '3.2', '2.11', '0.625', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Zyra.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion5.png', '48', '0', 'Born in an ancient, sorcerous catastrophe, Zyra is the wrath of nature given form—an alluring hybrid of plant and human, kindling new life with every step. She views the many mortals of Valoran as little more than prey for her seeded progeny, and thinks...');;
+
+
+
+
+
+ 
+
+
 
 

@@ -23,6 +23,7 @@ app.set("views", "views");
 // app.use(routeBase, callback)
 app.use("/", require("./controllers/page.route"));
 app.use("/champions", require("./controllers/champions.routes"));
+app.use("/team", require("./controllers/team.routes"));
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));

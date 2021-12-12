@@ -16,9 +16,7 @@
         <main>
             <section>
                 <h1 class="center gold_2" id="title_register">Register your team </h1>
-                <p id="text_register">You too have a team, you like to play together and you think you have a chance to
-                    compete with other
-                    teams so don't wait, register your team now!</p>
+                <p id="text_register">You too have a team, you like to play together and you think you have a chance to compete with other teams so don't wait, register your team now!</p>
             </section>
             <section id="form_register_team">
                 <form>
@@ -94,6 +92,57 @@
                     </div>
                     <button type="submit" id="submitButton">Submit</button>
                 </form>
+            </section>
+            <section>
+                <table>
+                    <tr>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Victory</td>
+                        <td>Defeat</td>
+                        <td>Continent</td>
+                        <td>Top liner name</td>
+                        <td>Mid laner name</td>
+                        <td>ADC name</td>
+                        <td>Support name</td>
+                    </tr>
+
+                    <% for (var t of teams) { %>
+                        <tr>
+                            <td>
+                                <%= t.team_id %>
+                            </td>
+                            <td>
+                                <%= t.team_name %>
+                            </td>
+                            <td>
+                                <%= t.team_victory%>
+                            </td>
+                            <td>
+                                <%= t.team_defeat%>
+                            </td>
+                            <td>
+                                <%= t.team_continent%>
+                            </td>
+                            <td>
+                                <%= t.player_top%>
+                            </td>
+                            <td>
+                                <%= t.player_mid%>
+                            </td>
+                            <td>
+                                <%= t.player_adc%>
+                            </td>
+                            <td>
+                                <%= t.player_support%>
+                            </td>
+                            <td><a href='/team/show/<%= t.team_id %>'>Show</a></td>
+                            <td><a href='/team/edit/<%= t.team_id %>'>Edit</a></td>
+                            <td><a href='/team/del/<%= t.team_id %>'>Delete</a></td>
+                        </tr>
+
+                        <% } %>
+                </table>
             </section>
         </main>
         <%- include('footer') %>
