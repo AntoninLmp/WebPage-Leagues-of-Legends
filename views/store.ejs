@@ -28,6 +28,25 @@
                 </div>
             </form>
         </section>
+        <section>
+
+            <aside class="displayFlex">
+                <% for(var fig of figurine) { %>
+                    <div class="center">
+                        <img src="<%= fig.pop_picture %> " class="figurineImage" alt="figurine">
+                        <div class="figPrice gold">
+                            <p>
+                                <%= fig.pop_price%> €
+                            </p>
+                            <p>
+                                <%= fig.pop_quantity %> pieces
+                            </p>
+                        </div>
+                        <button type="submit" class="button_buy">Buy online</button>
+                    </div>
+                    <% } %>
+            </aside>
+        </section>
 
         <%- include('footer') %>
 

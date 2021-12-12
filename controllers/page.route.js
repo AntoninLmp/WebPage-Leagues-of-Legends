@@ -21,9 +21,9 @@ router.get('/aboutUs', (req, res) => {
     res.render("aboutUs")
 });
 
-router.get('/store', (req, res) => {
-    res.render("store")
-});
+// router.get('/store', (req, res) => {
+//     res.render("store")
+// });
 
 
 module.exports = router;
