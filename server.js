@@ -12,9 +12,12 @@ app.use(session({
 }));
 
 app.listen(process.env.WEB_PORT,
-    function () { console.log("Listening on " + process.env.WEB_PORT); }
+    function () { console.log("Listening on :" + process.env.WEB_PORT); }
 );
 
+// // LOG IN 
+// const authentification = require("./utils/users.auth");
+// authentification.initialisation(app)
 
 // MIDDLEWARE REGISTRATIONS!
 // app.use(callback1, callback2, callback3)
@@ -24,6 +27,7 @@ app.set("views", "views");
 app.use("/", require("./controllers/page.route"));
 app.use("/champions", require("./controllers/champions.routes"));
 app.use("/store", require("./controllers/Figurine.route"))
+
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
