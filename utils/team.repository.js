@@ -46,18 +46,30 @@ module.exports = {
         }
     },
 
-    async updateTeam(teamId, teamName, teamVictory, teamDefeat, teamContinent, playerTop, PlayerMid, PlayerAdc, PlayerSupport) {
+    async editOneTeam(teamId, teamName, teamVictory, teamDefeat, teamContinent, playerTop, PlayerMid, PlayerAdc, PlayerSupport) {
         try {
             conn = await pool.getConnection();
-            sql = "UPDATE team SET team_name=?, team_victory=?, team_defeat=?, team_continent=?, player_top=?, player_mid=?, player_adc=?, player_support=?, player_jungle=? WHERE team_id=?";
-            const okPacket = await conn.query(sql, [teamName, teamVictory, teamDefeat, teamContinent, playerTop, PlayerMid, PlayerAdc, PlayerSupport, teamId]);
+            sql = "UPDATE team SET team_name=?, team_victory=?, team_defeat=?, team_continent=? WHERE team_id=?";
+            const okPacket = await conn.query(sql, [teamName, teamVictory, teamDefeat, teamContinent, teamId]);
             conn.end();
             console.log(okPacket); // affectedRows, insertId
             return okPacket.affectedRows;
         } catch (err) {
             throw err;
         }
-    }
+    },
+    async getAllPlayers() {
+        try {
+            conn = await pool.getConnection();
+            sql = "SELECT * FROM player";
+            const rows = await conn.query(sql);
+            conn.end();
+            console.log("ROWS FETCHED: " + rows.length);
+            return rows;
+        } catch (err) {
+            throw err;
+        }
+    },
     /*
       getBlankCar(){
         return { 

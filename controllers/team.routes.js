@@ -4,8 +4,8 @@ const teamRepo = require('../utils/team.repository')
 
 router.get('/', teamRootAction)
 router.get('/list', listTeam)
-router.get('/edit/:teamId', editTeam)
-router.get('/update/:teamId', teamUpdate)
+router.get('/edit/:teamId', teamEditAction)
+router.post('/update/:teamId', teamUpdate)
 
 
 // http://localhost:9000/team
@@ -17,15 +17,16 @@ async function listTeam(request, response) {
     var teams = await teamRepo.getAllTeam()
     response.render("team", { "teams": teams })
 }
-async function editTeam(request, response) {
+async function teamEditAction(request, response) {
     var team = await teamRepo.getOneTeam(request.params.teamId)
-    response.render("edit_team", { "OneTeam": team })
+    var allPlayers = await teamRepo.getAllPlayers()
+    response.render("edit_team", { "OneTeam": team, "players": allPlayers })
 }
 
 async function teamUpdate(request, response) {
-    /*var teamId = request.params.teamId;
+    var teamId = request.params.teamId;
     //if (teamId === "0") teamId = await teamRepo.addOneTeam(request.body.car_brand);
-    var numRows = await teamRepo.updateTeam(teamId,
+    var numRows = await teamRepo.editOneTeam(teamId,
         request.body.team_name,
         request.body.team_victory,
         request.body.team_defeat,
@@ -35,7 +36,7 @@ async function teamUpdate(request, response) {
         request.body.player_adc,
         request.body.player_support)
 
-    request.session.flashMessage = "ROWS UPDATED: " + numRows; */
+    request.session.flashMessage = "ROWS UPDATED: " + numRows;
     response.redirect("/team/list");
 }
 

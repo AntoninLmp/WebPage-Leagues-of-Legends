@@ -20,63 +20,73 @@
                         <label for="InputEmail">Name of The Team</label>
                         <input type="text" name="team_name" id="InputEmail" placeholder="Enter name" value="<%= OneTeam.team_name %>">
                     </div>
-                    <!-- <div class="laner">
-                        <div>
-                            <h1>Top Laner</h1>
-                            <label for="FirstName_top">First Name</label>
-                            <input type="text" id="FirstName_top" placeholder="Joe">
-                            <label for="LastName_top">Last Name</label>
-                            <input type="text" id="LastName_top" placeholder="Doe">
-                            <label for="pseudo_top">Pseudo</label>
-                            <input type="text" id="pseudo_top" placeholder="Phenix">
-                            <label for="favCar_top">Favorite caractere</label>
-                            <input type="text" id="favCar_top" placeholder="Aatrox">
-                        </div>
-                        <div>
-                            <h1>Mid Laner</h1>
-                            <label for="FirstName_mid">First Name</label>
-                            <input type="text" id="FirstName_mid" placeholder="Joe">
-                            <label for="LastName_mid">Last Name</label>
-                            <input type="text" id="LastName_mid" placeholder="Doe">
-                            <label for="pseudo_mid">Pseudo</label>
-                            <input type="text" id="pseudo_mid" placeholder="Phenix">
-                            <label for="favCar_mid">Favorite caractere</label>
-                            <input type="text" id="favCar_mid" placeholder="Aatrox">
-                        </div>
-                        <div>
-                            <h1>Attack Damage Carry</h1>
-                            <label for="FirstName_adc">First Name</label>
-                            <input type="text" id="FirstName_adc" placeholder="Joe">
-                            <label for="LastName_adc">Last Name</label>
-                            <input type="text" id="LastName_adc" placeholder="Doe">
-                            <label for="pseudo_adc">Pseudo</label>
-                            <input type="text" id="pseudo_adc" placeholder="Phenix">
-                            <label for="favCar_adc">Favorite caractere</label>
-                            <input type="text" id="favCar_adc" placeholder="Aatrox">
-                        </div>
-                        <div>
-                            <h1>Support</h1>
-                            <label for="FirstName_supp">First Name</label>
-                            <input type="text" id="FirstName_supp" placeholder="Joe">
-                            <label for="LastName_supp">Last Name</label>
-                            <input type="text" id="LastName_supp" placeholder="Doe">
-                            <label for="pseudo_supp">Pseudo</label>
-                            <input type="text" id="pseudo_supp" placeholder="Phenix">
-                            <label for="favCar_supp">Favorite caractere</label>
-                            <input type="text" id="favCar_supp" placeholder="Aatrox">
-                        </div>
-                        <div>
-                            <h1>Jungle Laner</h1>
-                            <label for="FirstName_supp">First Name</label>
-                            <input type="text" id="FirstName_supp" placeholder="Joe">
-                            <label for="LastName_supp">Last Name</label>
-                            <input type="text" id="LastName_supp" placeholder="Doe">
-                            <label for="pseudo_supp">Pseudo</label>
-                            <input type="text" id="pseudo_supp" placeholder="Phenix">
-                            <label for="favCar_supp">Favorite caractere</label>
-                            <input type="text" id="favCar_supp" placeholder="Aatrox">
-                        </div>
-                    </div> -->
+                    <div class="laner">
+                        <% for (var p of players) { %>
+                            <% if(p.player_id==OneTeam.player_top) {%>
+                                <div>
+                                    <h1>Top Laner</h1>
+                                    <label for="FirstName_top">First Name</label>
+                                    <input type="text" id="FirstName_top" placeholder="Joe" name="player_firstName" value="<%= p.player_firstName %> ">
+                                    <label for="LastName_top">Last Name</label>
+                                    <input type="text" id="LastName_top" placeholder="Doe" name="player_lastName" value="<%= p.player_lastName %> ">
+                                    <label for="pseudo_top">Pseudo</label>
+                                    <input type="text" id="pseudo_top" placeholder="Phenix" name="player_pseudo" value="<%= p.player_pseudo %>">
+                                    <label for="favCar_top">Favorite caractere</label>
+                                    <input type="text" id="favCar_top" placeholder="Aatrox" name="player_favCaract" value="<%= p.player_favCaract %>">
+                                </div>
+                                <% }else if(p.player_id==OneTeam.player_mid) {%>
+                                    <div>
+                                        <h1>Mid Laner</h1>
+                                        <label for="FirstName_mid">First Name</label>
+                                        <input type="text" id="FirstName_mid" placeholder="Joe" name="player_firstName" value="<%= p.player_firstName %> ">
+                                        <label for="LastName_mid">Last Name</label>
+                                        <input type="text" id="LastName_mid" placeholder="Doe" name="player_lastName" value="<%= p.player_lastName %> ">
+                                        <label for="pseudo_mid">Pseudo</label>
+                                        <input type="text" id="pseudo_mid" placeholder="Phenix" name="player_pseudo" value="<%= p.player_pseudo %>">
+                                        <label for="favCar_mid">Favorite caractere</label>
+                                        <input type="text" id="favCar_mid" placeholder="Aatrox" name="player_favCaract" value="<%= p.player_favCaract %>">
+                                    </div>
+                                    <% }else if(p.player_id==OneTeam.player_adc) {%>
+                                        <div>
+                                            <h1>Attack Damage Carry</h1>
+                                            <label for="FirstName_adc">First Name</label>
+                                            <input type="text" id="FirstName_adc" placeholder="Joe" name="player_firstName" value="<%= p.player_firstName %> ">
+                                            <label for="LastName_adc">Last Name</label>
+                                            <input type="text" id="LastName_adc" placeholder="Doe" name="player_lastName" value="<%= p.player_lastName %> ">
+                                            <label for="pseudo_adc">Pseudo</label>
+                                            <input type="text" id="pseudo_adc" placeholder="Phenix" name="player_pseudo" value="<%= p.player_pseudo %>">
+                                            <label for="favCar_adc">Favorite caractere</label>
+                                            <input type="text" id="favCar_adc" placeholder="Aatrox" name="player_favCaract" value="<%= p.player_favCaract %>">
+                                        </div>
+                                        <% }else if(p.player_id==OneTeam.player_support) {%>
+                                            <div>
+                                                <h1>Support</h1>
+                                                <label for="FirstName_supp">First Name</label>
+                                                <input type="text" id="FirstName_supp" placeholder="Joe" name="player_firstName" value="<%= p.player_firstName %> ">
+                                                <label for="LastName_supp">Last Name</label>
+                                                <input type="text" id="LastName_supp" placeholder="Doe" name="player_lastName" value="<%= p.player_lastName %> ">
+                                                <label for="pseudo_supp">Pseudo</label>
+                                                <input type="text" id="pseudo_supp" placeholder="Phenix" name="player_pseudo" value="<%= p.player_pseudo %>">
+                                                <label for="favCar_supp">Favorite caractere</label>
+                                                <input type="text" id="favCar_supp" placeholder="Aatrox" name="player_favCaract" value="<%= p.player_favCaract %>">
+                                            </div>
+                                            <% }else if(p.player_id==OneTeam.player_jungle) {%>
+                                                <div>
+                                                    <h1>Jungle Laner</h1>
+                                                    <label for="FirstName_supp">First Name</label>
+                                                    <input type="text" id="FirstName_supp" placeholder="Joe" name="player_firstName" value="<%= p.player_firstName %> ">
+                                                    <label for="LastName_supp">Last Name</label>
+                                                    <input type="text" id="LastName_supp" placeholder="Doe" name="player_lastName" value="<%= p.player_lastName %> ">
+                                                    <label for="pseudo_supp">Pseudo</label>
+                                                    <input type="text" id="pseudo_supp" placeholder="Phenix" name="player_pseudo" value="<%= p.player_pseudo %>">
+                                                    <label for="favCar_supp">Favorite caractere</label>
+                                                    <input type="text" id="favCar_supp" placeholder="Aatrox" name="player_favCaract" value="<%= p.player_favCaract %>">
+                                                </div>
+
+
+                                                <% }%>
+                                                    <% }%>
+                    </div>
                     <div>
                         <label for="for">Number of wins</label>
                         <input type="number" name="team_victory" value="<%= OneTeam.team_victory%>">

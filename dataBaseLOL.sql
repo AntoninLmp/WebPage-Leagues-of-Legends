@@ -46,7 +46,8 @@ CREATE TABLE player (
     player_pseudo varchar(100),
     player_country varchar(100),
     player_team varchar(100) ,
-    player_favCaract varchar(100)
+    player_favCaract varchar(100),
+    player_role varchar(100)
 );
 
 CREATE TABLE team(
@@ -69,16 +70,16 @@ CREATE TABLE team(
 );
 
 INSERT INTO player VALUES 
- 	(1,"LEE","SANGHYEOK","Faker", "Korean", "team" ,"aatrox"), 
-     (2,"LEE","MINHYUNG","Gumayusi", "Korean", "team" ,"aatrox"),
-     (3,"RAU","GABRIEL","Bwipo", "Belgium", "team" ,"aatrox"),
-     (4,"TIAN","YE","Meiko", "China", "team" ,"aatrox"),
-     (5,"YECHAN","LEE","Scout", "China", "team" ,"aatrox"),
-     (6,"HUANG","ROBERT","Blaber", "USA", "team","aatrox"),
-     (7,"LAFLAMME","PHILIPPE","Vulcan", "USA", "team" ,"aatrox"),
-     (8,"PARK","GI-TAE","Morgan", "Korean", "team" ,"aatrox"),
-     (9,"JO","YONGIN","CoreJJ", "USA", "team" ,"aatrox"),
-     (10,"JENSEN","NICOLAJ","Jensen", "USA", "team" ,"aatrox");
+ 	(1,"LEE","SANGHYEOK","Faker", "Korean", "team" ,"aatrox","mid"), 
+     (2,"LEE","MINHYUNG","Gumayusi", "Korean", "team" ,"aatrox","support"),
+     (3,"RAU","GABRIEL","Bwipo", "Belgium", "team" ,"aatrox","mid"),
+     (4,"TIAN","YE","Meiko", "China", "team" ,"aatrox","support"),
+     (5,"YECHAN","LEE","Scout", "China", "team" ,"aatrox","support"),
+     (6,"HUANG","ROBERT","Blaber", "USA", "team","aatrox","jungle"),
+     (7,"LAFLAMME","PHILIPPE","Vulcan", "USA", "team" ,"aatrox","jungle"),
+     (8,"PARK","GI-TAE","Morgan", "Korean", "team" ,"aatrox","mid"),
+     (9,"JO","YONGIN","CoreJJ", "USA", "team" ,"aatrox","jungle"),
+     (10,"JENSEN","NICOLAJ","Jensen", "USA", "team" ,"aatrox","mid");
 
 INSERT INTO team VALUES (NULL, "exemple", 12,0,"Europe",1,2,3,4,5);
 INSERT INTO team VALUES (NULL, "exemple2", 65,23,"Europe",5,6,7,8,6);
