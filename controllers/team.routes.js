@@ -6,6 +6,7 @@ router.get('/', teamRootAction)
 router.get('/list', listTeam)
 router.get('/edit/:teamId', teamEditAction)
 router.post('/update/:teamId', teamUpdate)
+router.get('/del/:teamId', teamDelAction)
 
 
 // http://localhost:9000/team
@@ -37,6 +38,12 @@ async function teamUpdate(request, response) {
         request.body.player_support)
 
     request.session.flashMessage = "ROWS UPDATED: " + numRows;
+    response.redirect("/team/list");
+}
+
+async function teamDelAction(request, response) {
+    var numRows = await teamRepo.delOneTeam(request.params.teamId);
+    request.session.flashMessage = "ROWS DELETED: " + numRows;
     response.redirect("/team/list");
 }
 

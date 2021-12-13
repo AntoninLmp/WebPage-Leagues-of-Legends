@@ -70,6 +70,18 @@ module.exports = {
             throw err;
         }
     },
+    async delOneTeam(teamId) {
+        try {
+            conn = await pool.getConnection();
+            sql = "DELETE FROM team WHERE team_id = ?";
+            const okPacket = await conn.query(sql, teamId);
+            conn.end();
+            console.log(okPacket); // affectedRows, insertId
+            return okPacket.affectedRows;
+        } catch (err) {
+            throw err;
+        }
+    }
     /*
       getBlankCar(){
         return { 
