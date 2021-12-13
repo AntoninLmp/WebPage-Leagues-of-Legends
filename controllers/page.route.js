@@ -11,19 +11,22 @@ router.get('/home', (req, res) => {
     res.render("home");
 });
 
-/* router.get('/team', (req, res) => {
-    res.render("team")
-}); */
-/* router.get('/champions', (req, res) => {
-    res.render("champions")
-}); */
 router.get('/aboutUs', (req, res) => {
     res.render("aboutUs")
 });
 
-router.get('/store', (req, res) => {
-    res.render("store")
-});
+
+// // LOG IN 
+// const auth = require("../utils/users.auth");
+// const userRepository = require("../utils/usersRepository");
+
+// // router.get("/user", auth.checkAuthentification("USER"), userAction);
+// router.get("/admin", auth.checkAuthentification("ADMIN"), adminAction);
+
+
+// async function adminAction(request, response) {
+//     let dataOfUser = await userRepository.getOneUser(request.user.user_name);
+// }
 
 
 module.exports = router;

@@ -1,6 +1,6 @@
 section{
     margin: 1em;
-    padding: 10em;
+    padding: 2em 10em;
 }
 
 form{
@@ -11,6 +11,7 @@ form{
     background-color: rgb(179, 176, 176);
     max-width: 1000px;
     text-align: center;
+    
 }
 
 .fields{
@@ -58,4 +59,36 @@ input[type=text]:invalid, input[type=password]:invalid{
 input[type=text]:valid, input[type=password]:valid{
     border-bottom: 2px solid rgb(58, 201, 89);
     caret-color: rgb(58, 201, 89);
+}
+
+/* Figurine  */
+
+.figurineImage{
+    width: 350px;
+}
+.figPrice{
+    border-top: 0.5px solid grey;
+    font-size: 1.4em;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-evenly;
+}
+aside {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.button_{
+    border: 2px solid rgb(100, 90, 30);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8em;
+    padding: 5px 15px;
+    text-transform: uppercase;
+}
+a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.button_:hover{
+    background-color: rgb(196, 196, 196);
 }
