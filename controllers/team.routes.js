@@ -5,8 +5,8 @@ const teamRepo = require('../utils/team.repository')
 router.get('/', teamRootAction)
 router.get('/list', listTeam)
 router.get('/edit/:teamId', teamEditAction)
-router.post('/update/:teamId', teamUpdate)
 router.get('/del/:teamId', teamDelAction)
+router.post('/update/:teamId', teamUpdateAction)
 
 
 // http://localhost:9000/team
@@ -19,24 +19,22 @@ async function listTeam(request, response) {
     response.render("team", { "teams": teams })
 }
 async function teamEditAction(request, response) {
-    var team = await teamRepo.getOneTeam(request.params.teamId)
-    var allPlayers = await teamRepo.getAllPlayers()
+    if (request.params.teamId == 0) {
+        var team = await teamRepo.getBlankTeam(request.params.teamId);
+        var allPlayers = "editor"
+    } else {
+        var team = await teamRepo.getOneTeam(request.params.teamId)
+        var allPlayers = await teamRepo.getAllPlayers()
+    }
     response.render("edit_team", { "OneTeam": team, "players": allPlayers })
 }
 
-async function teamUpdate(request, response) {
-    var teamId = request.params.teamId;
-    //if (teamId === "0") teamId = await teamRepo.addOneTeam(request.body.car_brand);
-    var numRows = await teamRepo.editOneTeam(teamId,
-        request.body.team_name,
-        request.body.team_victory,
-        request.body.team_defeat,
-        request.body.team_continent,
-        request.body.player_top,
-        request.body.player_mid,
-        request.body.player_adc,
-        request.body.player_support)
-
+async function teamUpdateAction(request, response) {
+    if (request.params.teamId === "0") {
+        var numRows = await teamRepo.addOneTeam(request.body.team_name, request.body.team_victory, request.body.team_defeat, request.body.team_continent, 1, 2, 3, 4, 5);
+    } else {
+        var numRows = await teamRepo.editOneTeam(request.params.teamId, request.body.team_name, request.body.team_victory, request.body.team_defeat, request.body.team_continent, 1, 2, 3, 4, 5);
+    }
     request.session.flashMessage = "ROWS UPDATED: " + numRows;
     response.redirect("/team/list");
 }
