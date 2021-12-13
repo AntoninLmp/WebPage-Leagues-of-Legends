@@ -15,18 +15,20 @@
     <%- include('header') %>
         <main>
             <section>
+                <h1 class="center gold_2 title_register">Team in competition</h1>
+
                 <table>
                     <tr>
-                        <td>ID</td>
-                        <td>Name</td>
-                        <td>Victory</td>
-                        <td>Defeat</td>
-                        <td>Continent</td>
-                        <td>Top liner name</td>
-                        <td>Mid laner name</td>
-                        <td>ADC name</td>
-                        <td>Support name</td>
-                        <td>Jungle name</td>
+                        <td class="headTable">ID</td>
+                        <td class="headTable">Name</td>
+                        <td class="headTable">Victory</td>
+                        <td class="headTable">Defeat</td>
+                        <td class="headTable">Continent</td>
+                        <td class="headTable">Top liner name</td>
+                        <td class="headTable">Mid laner name</td>
+                        <td class="headTable">ADC name</td>
+                        <td class="headTable">Support name</td>
+                        <td class="headTable">Jungle name</td>
                     </tr>
 
                     <% for (var t of teams) { %>
@@ -61,16 +63,25 @@
                             <td>
                                 <%= t.player_jungle%>
                             </td>
-                            <td><a href='/team/edit/<%= t.team_id %>'>Edit</a></td>
-                            <td><a href='/team/del/<%= t.team_id %>'>Delete</a></td>
+                            <td class="noBorder">
+                                <button class="buttonEdit">
+                                    <a href='/team/edit/<%= t.team_id %>'>Edit</a>
+                                </button>
+                            </td>
+                            <td class="noBorder">
+                                <button class="buttonEdit">
+                                    <a href='/team/del/<%= t.team_id %>'>Delete</a>
+                                </button>
+                            </td>
                         </tr>
 
                         <% } %>
                 </table>
             </section>
             <section>
-                <h1 class="center gold_2" id="title_register">Register your team </h1>
-                <p id="text_register">You too have a team, you like to play together and you think you have a chance to compete with other teams so don't wait, register your team now!</p>
+                <h1 class="center gold_2 title_register">Register your team </h1>
+                <p id="text_register">You too have a team, you like to play together and you think you have a chance to
+                    compete with other teams so don't wait, register your team now!</p>
             </section>
         </main>
         <%- include('footer') %>

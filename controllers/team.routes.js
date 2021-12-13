@@ -35,8 +35,7 @@ async function teamUpdate(request, response) {
         request.body.player_top,
         request.body.player_mid,
         request.body.player_adc,
-        request.body.player_support)
-
+        request.body.player_support);
     request.session.flashMessage = "ROWS UPDATED: " + numRows;
     response.redirect("/team/list");
 }
