@@ -13,20 +13,30 @@
 
 <body>
     <%- include('header') %>
-        <section>
-            <form action="" method="" id="f">
-                <div class="fields">
-                    <input type="text" name="user_name" id="userName" placeholder="User Name" required>
-                    <input type="password" name="user_prenom" id="password" placeholder="*******" required>
-                    <select name="role" id="role_select">
-                        <option value="User">User</option>
-                        <option value="Admin">Admin</option>
-                    </select>
-                </div>
-                <div>
-                    <input type="submit" id="myButton" value="Log In"></input>
-                </div>
-            </form>
+
+        <section id="storeFig">
+            <aside class="displayFlex">
+                <% for(var fig of store) { %>
+                    <div class="center">
+                        <img src="<%= fig.pop_picture %> " class="figurineImage" alt="figurine">
+                        <div class="figPrice gold">
+                            <p>
+                                <%= fig.pop_price%> €
+                            </p>
+                            <p>
+                                <%= fig.pop_quantity %> pieces
+                            </p>
+                        </div>
+                        <a href="/store/figurine/buy<%= fig.pop_id %>">
+                            <button type="button" class="button_">Buy online</button>
+                        </a>
+                        <a href="/store/figurine/sell<%= fig.pop_id %>">
+                            <button type="button" class="button_">Sell online</button>
+                        </a>
+
+                    </div>
+                    <% } %>
+            </aside>
         </section>
 
         <%- include('footer') %>
