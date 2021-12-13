@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const teamRepo = require('../utils/team.repository')
+const playersRepo = require('../utils/players.repository')
 
 router.get('/', teamRootAction)
 router.get('/list', listTeam)
@@ -16,7 +17,7 @@ function teamRootAction(request, response) {
 
 async function listTeam(request, response) {
     var teams = await teamRepo.getAllTeam()
-    var player = await teamRepo.getAllPlayers()
+    var player = await playersRepo.getAllPlayers()
     response.render("team", { "teams": teams, "player": player })
 }
 async function teamEditAction(request, response) {
@@ -25,7 +26,7 @@ async function teamEditAction(request, response) {
         var allPlayers = "editor"
     } else {
         var team = await teamRepo.getOneTeam(request.params.teamId)
-        var allPlayers = await teamRepo.getAllPlayers()
+        var allPlayers = await playersRepo.getAllPlayers()
     }
     response.render("edit_team", { "OneTeam": team, "players": allPlayers })
 }

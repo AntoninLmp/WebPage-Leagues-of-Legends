@@ -69,6 +69,20 @@ module.exports = {
         } catch (err) {
             throw err;
         }
-    }
+    },
+    async addOneTeam(teamName, teamVictory, teamDefeat, teamContinent, playerTop, playerMid, playerAdc, playerSupport, playerJungle) {
+
+        try {
+            conn = await pool.getConnection();
+            sql = "INSERT INTO team(team_name, team_victory, team_defeat, team_continent, player_top, player_mid, player_adc, player_support, player_jungle) VALUES (?,?,?,?,?,?,?,?,?)"; // CHANGER
+            console.log(teamName, teamVictory, teamDefeat, teamContinent, playerTop, playerMid, playerAdc, playerSupport, playerJungle)
+            const okPacket = await conn.query(sql, [teamName, teamVictory, teamDefeat, teamContinent, playerTop, playerMid, playerAdc, playerSupport, playerJungle]);
+            conn.end();
+            console.log(okPacket); // affectedRows, insertId
+            return okPacket.insertId;
+        } catch (err) {
+            throw err;
+        }
+    },
 
 };
