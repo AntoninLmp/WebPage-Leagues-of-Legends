@@ -59,10 +59,12 @@ CREATE TABLE team(
     player_mid int,
     player_adc int,
     player_support int,
+    player_jungle int,
     CONSTRAINT fk_top FOREIGN KEY (player_top) REFERENCES player(player_id),
     CONSTRAINT fk_mid FOREIGN KEY (player_mid) REFERENCES player(player_id),
     CONSTRAINT fk_adc FOREIGN KEY (player_adc) REFERENCES player(player_id),
-    CONSTRAINT fk_support FOREIGN KEY (player_support) REFERENCES player(player_id)
+    CONSTRAINT fk_support FOREIGN KEY (player_support) REFERENCES player(player_id),
+    CONSTRAINT fk_jungle FOREIGN KEY (player_jungle) REFERENCES player(player_id)
 
 );
 
@@ -78,9 +80,9 @@ INSERT INTO player VALUES
      (9,"JO","YONGIN","CoreJJ", "USA", "team" ,"aatrox"),
      (10,"JENSEN","NICOLAJ","Jensen", "USA", "team" ,"aatrox");
 
-INSERT INTO team VALUES (NULL, "exemple", 12,0,"Europe",1,2,3,4);
-INSERT INTO team VALUES (NULL, "exemple2", 65,23,"Europe",5,6,7,8);
-INSERT INTO team VALUES (NULL, "exemple3", 23,43,"Europe",9,10,1,2);
+INSERT INTO team VALUES (NULL, "exemple", 12,0,"Europe",1,2,3,4,5);
+INSERT INTO team VALUES (NULL, "exemple2", 65,23,"Europe",5,6,7,8,6);
+INSERT INTO team VALUES (NULL, "exemple3", 23,43,"Europe",9,10,1,2,2);
 
 
 
