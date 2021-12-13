@@ -85,23 +85,20 @@ INSERT INTO team VALUES (NULL, "exemple2", 65,23,"Europe",5,6,7,8,6);
 INSERT INTO team VALUES (NULL, "exemple3", 23,43,"Europe",9,10,1,2,2);
 
 
-
-/* https://www.rotowire.com/esports/team-stats-lol.php?league=297&series= */
-
-CREATE TABLE PopUp(
+CREATE TABLE popup(
     pop_id int auto_increment PRIMARY KEY,
     pop_picture varchar(1000),
     pop_price float NOT NULL,
     pop_quantity int
 );
 
-INSERT INTO PopUp VALUES
+INSERT INTO popup VALUES
     (NULL, "https://www.cdiscount.com/pdt2/0/7/7/1/700x700/fun0889698103077/rw/funko-figurine-league-of-legends-ashe-pop-10cm.jpg", 12.99, 4), 
     (NULL, "https://commentseruiner.com/25362-large_default/figurine-pop-league-of-legends-braum.jpg", 15.99, 7), 
     (NULL, "https://www.cdiscount.com/pdt2/0/2/2/1/700x700/fun0889698103022/rw/funko-figurine-league-of-legends-vi-pop-10cm.jpg", 13.99, 8),
     (NULL, "https://www.cdiscount.com/pdt2/0/6/0/1/700x700/fun0889698103060/rw/funko-figurine-league-of-legends-lee-sin-pop-1.jpg", 13.99, 5),
     (NULL, "https://commentseruiner.com/24298-large_default/figurine-pop-league-of-legends-thresh.jpg", 49.99, 5),
-    (NULL, "https://www.cdiscount.com/pdt2/1/4/9/1/700x700/fun0889698118149/rw/funko-figurine-league-of-legends-miss-fortune.jpg", 39.99, 5)
+    (NULL, "https://www.cdiscount.com/pdt2/1/4/9/1/700x700/fun0889698118149/rw/funko-figurine-league-of-legends-miss-fortune.jpg", 39.99, 5);
 
 
 INSERT INTO champions VALUES ('aatrox', '266', 'Aatrox', 'the Darkin Blade', 'Fighter', 'Tank', '580', '90', '0', '0', '345', '38', '3.25', '32.1', '1.25', '175', '3', '1', '0', '0', '0', '0', '60', '5', '2.5', '0.651', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Aatrox.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion0.png', '0', '0', 'Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find...'),

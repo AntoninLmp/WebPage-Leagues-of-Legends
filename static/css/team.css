@@ -28,6 +28,7 @@ form div{
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+    align-items: center;
 }
 label{
     font-size: 1.3em;
@@ -39,6 +40,7 @@ input, select{
     border-radius: 5px;
     padding: .375rem .75rem;
     min-width: 200px;
+    max-width: 350px;
 }
 .laner{
     display: flex;
@@ -57,4 +59,13 @@ input, select{
 }
 #submitButton:hover{
     background-color: rgb(212, 212, 212);
+}
+.fitContent{
+    max-width: fit-content;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
 }
