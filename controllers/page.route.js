@@ -11,10 +11,6 @@ router.get('/home', (req, res) => {
     res.render("home");
 });
 
-router.get('/team', (req, res) => {
-    res.render("team")
-});
-
 router.get('/aboutUs', (req, res) => {
     res.render("aboutUs")
 });

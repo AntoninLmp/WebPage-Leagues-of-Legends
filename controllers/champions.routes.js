@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const championsRepo = require('../utils/championsRepository')
+const championsRepo = require('../utils/champions.repository')
 
 router.get('/', championRootAction)
 router.get('/list', listCampions)
@@ -43,27 +43,26 @@ async function showOneChampion(request, response) {
 }
 
 async function chooseChampion(request, response) {
-
-    switch (request.params.championId) {
+    switch (request.params.category) {
         case "all":
             var champions = await championsRepo.getAllChampions()
             break;
-        case "fighter":
+        case "Fighter":
             var champions = await championsRepo.getCategoryChampion("Fighter")
             break;
-        case "mage":
+        case "Mage":
             var champions = await championsRepo.getCategoryChampion("Mage")
             break;
-        case "assassin":
+        case "Assassin":
             var champions = await championsRepo.getCategoryChampion("Assassin")
             break;
-        case "tank":
+        case "Tank":
             var champions = await championsRepo.getCategoryChampion("Tank")
             break;
-        case "marksman":
+        case "Marksman":
             var champions = await championsRepo.getCategoryChampion("Marksman")
             break;
-        case "support":
+        case "Support":
             var champions = await championsRepo.getCategoryChampion(Support)
             break;
         default:
@@ -82,7 +81,6 @@ async function chooseChampion(request, response) {
 async function compareChampion(request, response) {
     var championId1 = request.params.championId1
     var championId2 = request.params.championId2
-    var champions = []
     if (championId1 !== "0" && championId2 !== "0") {
         var champion1 = await championsRepo.getOneChampion(championId1)
         var champion2 = await championsRepo.getOneChampion(championId2)
@@ -90,8 +88,6 @@ async function compareChampion(request, response) {
         var champion1 = carRepo.getChampionModel()
         var champion2 = carRepo.getChampionModel()
     }
-    champions.push([champion1, champion2])
-
 
     response.render("compare_champions", { "champion1": champion1, "champion2": champion2 })
 }
