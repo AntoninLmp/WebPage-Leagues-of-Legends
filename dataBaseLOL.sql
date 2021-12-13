@@ -69,20 +69,20 @@ CREATE TABLE team(
 );
 
 INSERT INTO player VALUES 
- 	(1,"LEE","SANGHYEOK","Faker", "Korean", "team" ,"aatrox","mid"), 
-     (2,"LEE","MINHYUNG","Gumayusi", "Korean", "team" ,"aatrox","support"),
-     (3,"RAU","GABRIEL","Bwipo", "Belgium", "team" ,"aatrox","mid"),
-     (4,"TIAN","YE","Meiko", "China", "team" ,"aatrox","support"),
-     (5,"YECHAN","LEE","Scout", "China", "team" ,"aatrox","support"),
-     (6,"HUANG","ROBERT","Blaber", "USA", "team","aatrox","jungle"),
-     (7,"LAFLAMME","PHILIPPE","Vulcan", "USA", "team" ,"aatrox","jungle"),
-     (8,"PARK","GI-TAE","Morgan", "Korean", "team" ,"aatrox","mid"),
-     (9,"JO","YONGIN","CoreJJ", "USA", "team" ,"aatrox","jungle"),
-     (10,"JENSEN","NICOLAJ","Jensen", "USA", "team" ,"aatrox","mid");
+ 	(1,"LEE","SANGHYEOK","Faker", "Korean", "T1" ,"ryze","mid"), 
+    (2,"LEE","MINHYUNG","Gumayusi", "Korean", "team" ,"aatrox","support"),
+    (3,"RAU","GABRIEL","Bwipo", "Belgium", "Fnatic" ,"aatrox","mid"),
+    (4,"TIAN","YE","Meiko", "China", "team" ,"aatrox","support"),
+    (5,"YECHAN","LEE","Scout", "China", "team" ,"aatrox","support"),
+    (6,"HUANG","ROBERT","Blaber", "USA", "team","aatrox","jungle"),
+    (7,"LAFLAMME","PHILIPPE","Vulcan", "USA", "team" ,"aatrox","jungle"),
+    (8,"PARK","GI-TAE","Morgan", "Korean", "team" ,"aatrox","mid"),
+    (9,"JO","YONGIN","CoreJJ", "USA", "team" ,"aatrox","jungle"),
+    (10,"JENSEN","NICOLAJ","Jensen", "USA", "team" ,"aatrox","mid");
 
-INSERT INTO team VALUES (NULL, "exemple", 12,0,"Europe",1,2,3,4,5);
-INSERT INTO team VALUES (NULL, "exemple2", 65,23,"Europe",5,6,7,8,6);
-INSERT INTO team VALUES (NULL, "exemple3", 23,43,"Europe",9,10,1,2,2);
+INSERT INTO team VALUES (NULL, "Fnatic", 12,0,"Europe",1,2,3,4,5);
+INSERT INTO team VALUES (NULL, "G2", 65,23,"Europe",5,6,7,8,6);
+INSERT INTO team VALUES (NULL, "T1", 23,43,"Europe",9,10,1,2,2);
 
 
 CREATE TABLE popup(

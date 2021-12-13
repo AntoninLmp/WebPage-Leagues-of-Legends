@@ -49,19 +49,39 @@
                                 <%= t.team_continent%>
                             </td>
                             <td>
-                                <%= t.player_top%>
+                                <% for (p of player) { %>
+                                    <% if (p.player_id==t.player_top){ %>
+                                        <%=p.player_pseudo %>
+                                            <% } %>
+                                                <% } %>
                             </td>
                             <td>
-                                <%= t.player_mid%>
+                                <% for (p of player) { %>
+                                    <% if (p.player_id==t.player_mid){ %>
+                                        <%=p.player_pseudo %>
+                                            <% } %>
+                                                <% } %>
                             </td>
                             <td>
-                                <%= t.player_adc%>
+                                <% for (p of player) { %>
+                                    <% if (p.player_id==t.player_adc){ %>
+                                        <%=p.player_pseudo %>
+                                            <% } %>
+                                                <% } %>
                             </td>
                             <td>
-                                <%= t.player_support%>
+                                <% for (p of player) { %>
+                                    <% if (p.player_id==t.player_support){ %>
+                                        <%=p.player_pseudo %>
+                                            <% } %>
+                                                <% } %>
                             </td>
                             <td>
-                                <%= t.player_jungle%>
+                                <% for (p of player) { %>
+                                    <% if (p.player_id==t.player_jungle){ %>
+                                        <%=p.player_pseudo %>
+                                            <% } %>
+                                                <% } %>
                             </td>
                             <td class="noBorder">
                                 <button class="buttonEdit">
