@@ -15,85 +15,62 @@
     <%- include('header') %>
         <main>
             <section>
-                <h1 class="center gold_2" id="title_register">Register your team </h1>
-                <p id="text_register">You too have a team, you like to play together and you think you have a chance to
-                    compete with other
-                    teams so don't wait, register your team now!</p>
+                <table>
+                    <tr>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Victory</td>
+                        <td>Defeat</td>
+                        <td>Continent</td>
+                        <td>Top liner name</td>
+                        <td>Mid laner name</td>
+                        <td>ADC name</td>
+                        <td>Support name</td>
+                        <td>Jungle name</td>
+                    </tr>
+
+                    <% for (var t of teams) { %>
+                        <tr>
+                            <td>
+                                <%= t.team_id %>
+                            </td>
+                            <td>
+                                <%= t.team_name %>
+                            </td>
+                            <td>
+                                <%= t.team_victory%>
+                            </td>
+                            <td>
+                                <%= t.team_defeat%>
+                            </td>
+                            <td>
+                                <%= t.team_continent%>
+                            </td>
+                            <td>
+                                <%= t.player_top%>
+                            </td>
+                            <td>
+                                <%= t.player_mid%>
+                            </td>
+                            <td>
+                                <%= t.player_adc%>
+                            </td>
+                            <td>
+                                <%= t.player_support%>
+                            </td>
+                            <td>
+                                <%= t.player_jungle%>
+                            </td>
+                            <td><a href='/team/edit/<%= t.team_id %>'>Edit</a></td>
+                            <td><a href='/team/del/<%= t.team_id %>'>Delete</a></td>
+                        </tr>
+
+                        <% } %>
+                </table>
             </section>
-            <section id="form_register_team">
-                <form>
-                    <div>
-                        <label for="InputEmail">Name of The Team</label>
-                        <input type="email" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter name">
-                    </div>
-                    <div class="laner">
-                        <div>
-                            <h1>Top Laner</h1>
-                            <label for="FirstName_top">First Name</label>
-                            <input type="text" id="FirstName_top" placeholder="Joe">
-                            <label for="LastName_top">Last Name</label>
-                            <input type="text" id="LastName_top" placeholder="Doe">
-                            <label for="pseudo_top">Pseudo</label>
-                            <input type="text" id="pseudo_top" placeholder="Phenix">
-                            <label for="favCar_top">Favorite caractere</label>
-                            <input type="text" id="favCar_top" placeholder="Aatrox">
-                        </div>
-                        <div>
-                            <h1>Mid Laner</h1>
-                            <label for="FirstName_mid">First Name</label>
-                            <input type="text" id="FirstName_mid" placeholder="Joe">
-                            <label for="LastName_mid">Last Name</label>
-                            <input type="text" id="LastName_mid" placeholder="Doe">
-                            <label for="pseudo_mid">Pseudo</label>
-                            <input type="text" id="pseudo_mid" placeholder="Phenix">
-                            <label for="favCar_mid">Favorite caractere</label>
-                            <input type="text" id="favCar_mid" placeholder="Aatrox">
-                        </div>
-                        <div>
-                            <h1>Attack Damage Carry</h1>
-                            <label for="FirstName_adc">First Name</label>
-                            <input type="text" id="FirstName_adc" placeholder="Joe">
-                            <label for="LastName_adc">Last Name</label>
-                            <input type="text" id="LastName_adc" placeholder="Doe">
-                            <label for="pseudo_adc">Pseudo</label>
-                            <input type="text" id="pseudo_adc" placeholder="Phenix">
-                            <label for="favCar_adc">Favorite caractere</label>
-                            <input type="text" id="favCar_adc" placeholder="Aatrox">
-                        </div>
-                        <div>
-                            <h1>Support</h1>
-                            <label for="FirstName_supp">First Name</label>
-                            <input type="text" id="FirstName_supp" placeholder="Joe">
-                            <label for="LastName_supp">Last Name</label>
-                            <input type="text" id="LastName_supp" placeholder="Doe">
-                            <label for="pseudo_supp">Pseudo</label>
-                            <input type="text" id="pseudo_supp" placeholder="Phenix">
-                            <label for="favCar_supp">Favorite caractere</label>
-                            <input type="text" id="favCar_supp" placeholder="Aatrox">
-                        </div>
-                        <div>
-                            <h1>Jungle Laner</h1>
-                            <label for="FirstName_supp">First Name</label>
-                            <input type="text" id="FirstName_supp" placeholder="Joe">
-                            <label for="LastName_supp">Last Name</label>
-                            <input type="text" id="LastName_supp" placeholder="Doe">
-                            <label for="pseudo_supp">Pseudo</label>
-                            <input type="text" id="pseudo_supp" placeholder="Phenix">
-                            <label for="favCar_supp">Favorite caractere</label>
-                            <input type="text" id="favCar_supp" placeholder="Aatrox">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="continent">What continent are you from?</label>
-                        <select name="continent" id="contient">
-                            <option value="Europe">Europe</option>
-                            <option value="China">China</option>
-                            <option value="North America">North America</option>
-                            <option value="Korean">Korean</option>
-                        </select>
-                    </div>
-                    <button type="submit" id="submitButton">Submit</button>
-                </form>
+            <section>
+                <h1 class="center gold_2" id="title_register">Register your team </h1>
+                <p id="text_register">You too have a team, you like to play together and you think you have a chance to compete with other teams so don't wait, register your team now!</p>
             </section>
         </main>
         <%- include('footer') %>

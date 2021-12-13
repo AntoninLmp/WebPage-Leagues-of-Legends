@@ -11,9 +11,9 @@ router.get('/home', (req, res) => {
     res.render("home");
 });
 
-router.get('/team', (req, res) => {
+/* router.get('/team', (req, res) => {
     res.render("team")
-});
+}); */
 /* router.get('/champions', (req, res) => {
     res.render("champions")
 }); */

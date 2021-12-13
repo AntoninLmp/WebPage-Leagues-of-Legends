@@ -21,9 +21,13 @@ app.set("views", "views");
 // MIDDLEWARE REGISTRATIONS!
 // app.use(callback1, callback2, callback3)
 // app.use(routeBase, callback)
-app.use("/", require("./controllers/page.route"));
-app.use("/champions", require("./controllers/champions.routes"));
+
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use("/static", express.static(__dirname + '/static'));
+
+
+app.use("/", require("./controllers/page.route"));
+app.use("/champions", require("./controllers/champions.routes"));
+app.use("/team", require("./controllers/team.routes"));

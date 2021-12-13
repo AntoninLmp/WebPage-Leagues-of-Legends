@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const championsRepo = require('../utils/championsRepository')
+const championsRepo = require('../utils/champions.repository')
 
 router.get('/', championRootAction)
 router.get('/list', listCampions)
