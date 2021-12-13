@@ -15,13 +15,11 @@
     <%- include('header') %>
         <main>
             <section id="form_register_team">
-                <form action='/team/update/<%= OneTeam.team_id %>' method='post'
-                    enctype='application/x-www-form-urlencoded'>
+                <form action='/team/update/<%= OneTeam.team_id %>' method='post' enctype='application/x-www-form-urlencoded'>
                     <div class="container">
                         <div class="fitContent">
                             <label for="NameTeam">Name of The Team</label>
-                            <input type="text" name="team_name" id="NameTeam" placeholder="Enter name"
-                                value="<%= OneTeam.team_name %>">
+                            <input type="text" name="team_name" id="NameTeam" placeholder="Enter name" value="<%= OneTeam.team_name %>">
                         </div>
                         <div class="fitContent">
                             <label for="for">Number of wins</label>
@@ -48,21 +46,6 @@
                                     >Korean</option>
                             </select>
                         </div>
-                    </div>
-                    <div>
-                        <label for="for">Number of wins</label>
-                        <input type="number" name="team_victory" value="<%= OneTeam.team_victory%>">
-                        <label for="for">Number of defeats</label>
-                        <input type="number" name="team_defeat" value="<%= OneTeam.team_defeat%>">
-                    </div>
-                    <div>
-                        <label for="team_continent">What continent are you from?</label>
-                        <select name="team_continent" id="contient">
-                            <option value="Europe" <%- OneTeam.team_continent=="Europe" ? "selected='selected'" : "" %>>Europe</option>
-                            <option value="China" <%- OneTeam.team_continent=="China" ? "selected='selected'" : "" %>>China</option>
-                            <option value="North America" <%- OneTeam.team_continent=="North America" ? "selected='selected'" : ""%> >North America</option>
-                            <option value="Korean" <%- OneTeam.team_continent=="Korean" ? "selected='selected'" : "" %>>Korean</option>
-                        </select>
                     </div>
                     <div class="laner">
                         <% if(players!=="editor") {%>
@@ -108,17 +91,13 @@
                                                 <div>
                                                     <h1>Support</h1>
                                                     <label for="FirstName_supp">First Name</label>
-                                                    <input type="text" id="FirstName_supp" placeholder="Joe"
-                                                        name="player_firstName" value="<%= p.player_firstName %> ">
+                                                    <input type="text" id="FirstName_supp" placeholder="Joe" name="player_firstName" value="<%= p.player_firstName %> ">
                                                     <label for="LastName_supp">Last Name</label>
-                                                    <input type="text" id="LastName_supp" placeholder="Doe"
-                                                        name="player_lastName" value="<%= p.player_lastName %> ">
+                                                    <input type="text" id="LastName_supp" placeholder="Doe" name="player_lastName" value="<%= p.player_lastName %> ">
                                                     <label for="pseudo_supp">Pseudo</label>
-                                                    <input type="text" id="pseudo_supp" placeholder="Phenix"
-                                                        name="player_pseudo" value="<%= p.player_pseudo %>">
+                                                    <input type="text" id="pseudo_supp" placeholder="Phenix" name="player_pseudo" value="<%= p.player_pseudo %>">
                                                     <label for="favCar_supp">Favorite caractere</label>
-                                                    <input type="text" id="favCar_supp" placeholder="Aatrox"
-                                                        name="player_favCaract" value="<%= p.player_favCaract %>">
+                                                    <input type="text" id="favCar_supp" placeholder="Aatrox" name="player_favCaract" value="<%= p.player_favCaract %>">
                                                 </div>
                                                 <% }else if(p.player_id==OneTeam.player_jungle) {%>
                                                     <div>
@@ -193,7 +172,7 @@
                                                                     <% }%>
                                                     </div>
 
-                  <input type="submit" id="submitButton" value="Submit">
+                                                    <input type="submit" id="submitButton" value="Submit">
 
                 </form>
             </section>
