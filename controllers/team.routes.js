@@ -15,7 +15,8 @@ function teamRootAction(request, response) {
 
 async function listTeam(request, response) {
     var teams = await teamRepo.getAllTeam()
-    response.render("team", { "teams": teams })
+    var player = await teamRepo.getAllPlayers()
+    response.render("team", { "teams": teams, "player": player })
 }
 async function teamEditAction(request, response) {
     var team = await teamRepo.getOneTeam(request.params.teamId)

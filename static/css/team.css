@@ -91,3 +91,11 @@ td{
 .noBorder{
     border: 0;
 }
+.button_{
+    border: 2px solid rgb(100, 90, 30);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8em;
+    padding: 5px 15px;
+    text-transform: uppercase;
+}
