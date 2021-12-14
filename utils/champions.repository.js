@@ -1,7 +1,7 @@
 // utils/cars.repository.js
 var pool = require("./db.js")
-    // JS include = relative to CONTROLLERS 
-    // VIEW include = relative to VIEWS
+// JS include = relative to CONTROLLERS 
+// VIEW include = relative to VIEWS
 module.exports = {
     getChampionModel() { // defines the entity model
         return {

@@ -34,7 +34,6 @@ app.use("/champions", require("./controllers/champions.routes"));
 app.use("/team", require("./controllers/team.routes"));
 app.use("/store", require("./controllers/Figurine.route"));
 
-
 app.use("/static", express.static(__dirname + '/static'));
 
 
