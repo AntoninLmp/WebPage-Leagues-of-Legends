@@ -26,19 +26,20 @@
     <%- include('header') %>
         <main>
             <section>
-                <h1 class="center gold_2 title_register">Player in competition</h1>
+                <h1 class="gold_2 center text_title">Player in competition</h1>
 
                 <table class="table table-striped table-bordered table-hover table-dark">
 
                     <tr>
                         <td class="headTable">ID</td>
-                        <td class="headTable">First Name</td>
-                        <td class="headTable">Last Name</td>
+                        <!-- <td class="headTable">First Name</td> -->
+                        <!-- <td class="headTable">Last Name</td> -->
                         <td class="headTable">Pseudo</td>
-                        <td class="headTable">Country</td>
+                        <!-- <td class="headTable">Country</td> -->
                         <td class="headTable">Team</td>
                         <td class="headTable">Favorite Caracter</td>
                         <td class="headTable">Role</td>
+                        <td class="headTable">Show</td>
                         <td class="headTable">Edit</td>
                         <td class="headTable">Delete</td>
                     </tr>
@@ -47,18 +48,18 @@
                             <td>
                                 <%= p.player_id %>
                             </td>
-                            <td>
+                            <!-- <td>
                                 <%= p.player_firstName %>
                             </td>
                             <td>
                                 <%= p.player_lastName %>
-                            </td>
+                            </td> -->
                             <td>
                                 <%= p.player_pseudo %>
                             </td>
-                            <td>
+                            <!-- <td>
                                 <%= p.player_country %>
-                            </td>
+                            </td> -->
                             <td>
                                 <%= p.player_team %>
                             </td>
@@ -73,19 +74,20 @@
                                 <%= p.player_role%>
                             </td>
                             <td class="noBorder">
-                                <button class="buttonEdit">
-                                        <a href='/players/show/<%= p.player_id %>'>show</a>
-                                    </button>
+                                <a href='/players/show/<%= p.player_id %>'>
+                                    <button class="buttonEdit"> Show</button>
+                                </a>
                             </td>
                             <td class="noBorder">
-                                <button class="buttonEdit">
-                                    <a href='/players/edit/<%= p.player_id %>'>Edit</a>
-                                </button>
+
+                                <a href='/players/edit/<%= p.player_id %>'>
+                                    <button class="buttonEdit"> Edit </button>
+                                </a>
                             </td>
                             <td class="noBorder">
-                                <button class="buttonEdit">
-                                    <a href='/players/del/<%= p.player_id %>'>Delete</a>
-                                </button>
+                                <a href='/players/del/<%= p.player_id %>'>
+                                    <button class="buttonEdit"> Delete</button>
+                                </a>
                             </td>
                         </tr>
                         <% } %>

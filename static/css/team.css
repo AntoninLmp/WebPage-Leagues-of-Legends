@@ -77,6 +77,13 @@ td{
     text-align: center;
     font-size: 1.5em;
 }
+#showTeam td, #showPlayer td{
+    color: white;
+}
+#showTeam td a, #showPlayer td a{
+    color: rgb(175, 151, 11);
+}
+
 .headTable{
     color: blanchedalmond;
     font-style: italic;
@@ -115,4 +122,14 @@ a{
 .buttonBack{
     margin-top: 5%;
     margin-left: 5%;
+}
+.text_description{
+    text-align: justify;
+    font-size: 1.3em;
+    margin: 0 10%;
+}
+.text_title{
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }

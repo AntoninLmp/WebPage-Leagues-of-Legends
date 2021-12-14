@@ -25,13 +25,44 @@
     <%- include('header') %>
         <main>
             <section>
-                <h1 class="center gold_2 title_register">Team in competition</h1>
+                <h1 class="gold_2 center text_title">The world Cup</h1>
+                <p class="text_description">
+                    The League of Legends World Championship is the annual League of Legends World Championship
+                    professional tournament hosted by Riot Games and is the highlight of each season. The top teams from
+                    each major league compete for the title of World Champion. At stake is the 32kg Summoner's Cup and a
+                    hefty prize package ranging to over $1 million USD. <br><br>
+
+                    In 2018, the finals broke all previous audience records with nearly 100 million (99.6) unique
+                    viewers, 44 million concurrent viewers and an average of 19.6 million viewers during the finals. In
+                    addition, teams were offered more than $4.2 million USD from the sale of exclusive chromas and skins
+                    for the event1. <br>
+
+                    The League of Legends World Championships has been a resounding success and has grown in popularity,
+                    making it one of the most prestigious and most-watched tournaments in the world (surpassing even the
+                    NBA Finals), as well as the most watched video game in the world. Due to its success, the esports
+                    stage has become widely seen as a potential Olympic event, already part of the 2022 Asian Games
+                    program. <br><br>
+
+                    The tournament was initially held in one or two cities. But from 2013 to 2019, it was always three
+                    or four cities in a major region that could host the event. South Korea, China, Southeast Asia, the
+                    United States and Europe have all been able to host a competition at least once before. Due to the
+                    COVID-19 pandemic, the 2020 edition could only be held in one city, Shanghai. For the first time,
+                    the competition had to be held without an audience, with only the finals being open to the public.
+                    China, Europe and the United States were able to host the competition three times each.
+
+                </p>
+                <p class="center">
+                    Sources : Wikipédia
+                </p>
+            </section>
+            <section>
+                <h1 class="gold_2 center text_title">Team in competition</h1>
                 <table class="table table-striped table-bordered table-hover table-dark">
                     <tr>
                         <td class="headTable">ID</td>
                         <td class="headTable">Name</td>
-                        <td class="headTable">Victory</td>
-                        <td class="headTable">Defeat</td>
+                        <!-- <td class="headTable">Victory</td> -->
+                        <!-- <td class="headTable">Defeat</td> -->
                         <td class="headTable">Continent</td>
 
                         <td class="headTable">Top liner player</td>
@@ -52,12 +83,12 @@
                             <td>
                                 <%= t.team_name %>
                             </td>
-                            <td>
+                            <!-- <td>
                                 <%= t.team_victory%>
                             </td>
                             <td>
                                 <%= t.team_defeat%>
-                            </td>
+                            </td> -->
                             <td>
                                 <%= t.team_continent%>
                             </td>
@@ -97,19 +128,26 @@
                                                 <% } %>
                             </td>
                             <td class="noBorder">
-                                <button class="buttonEdit">
-                                    <a href='/team/show/<%= t.team_id %>'>Show</a>
-                                </button>
+                                <a href='/team/show/<%= t.team_id %>'>
+                                    <button class="buttonEdit">
+                                        Show
+                                    </button>
+                                </a>
                             </td>
                             <td class="noBorder">
-                                <button class="buttonEdit">
-                                    <a href='/team/edit/<%= t.team_id %>'>Edit</a>
-                                </button>
+                                <a href='/team/edit/<%= t.team_id %>'>
+                                    <button class="buttonEdit">
+                                        Edit
+                                    </button>
+                                </a>
                             </td>
                             <td class="noBorder">
-                                <button class="buttonEdit">
-                                    <a href='/team/del/<%= t.team_id %>'>Delete</a>
-                                </button>
+                                <a href='/team/del/<%= t.team_id %>'>
+                                    <button class="buttonEdit">
+                                        Delete
+                                    </button>
+                                </a>
+
                             </td>
                         </tr>
                         <% } %>
