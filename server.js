@@ -12,7 +12,7 @@ app.use(session({
 }));
 
 app.listen(process.env.WEB_PORT,
-    function () { console.log("Listening on :" + process.env.WEB_PORT); }
+    function() { console.log("Listening on :" + process.env.WEB_PORT); }
 );
 
 // // LOG IN 
@@ -32,8 +32,8 @@ app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use("/", require("./controllers/page.route"));
 app.use("/champions", require("./controllers/champions.routes"));
 app.use("/team", require("./controllers/team.routes"));
+app.use("/players", require("./controllers/players.route"));
 app.use("/store", require("./controllers/Figurine.route"));
 
 app.use("/static", express.static(__dirname + '/static'));
-
 

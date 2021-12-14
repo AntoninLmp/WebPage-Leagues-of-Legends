@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const teamRepo = require('../utils/team.repository')
+const playersRepo = require('../utils/players.repository')
 
 router.get('/', teamRootAction)
 router.get('/list', listTeam)
@@ -16,7 +17,7 @@ function teamRootAction(request, response) {
 
 async function listTeam(request, response) {
     var teams = await teamRepo.getAllTeam()
-    var player = await teamRepo.getAllPlayers()
+    var player = await playersRepo.getAllPlayers()
     response.render("team", { "teams": teams, "player": player })
 }
 async function teamEditAction(request, response) {
@@ -25,7 +26,7 @@ async function teamEditAction(request, response) {
         var allPlayers = "editor"
     } else {
         var team = await teamRepo.getOneTeam(request.params.teamId)
-        var allPlayers = await teamRepo.getAllPlayers()
+        var allPlayers = await playersRepo.getAllPlayers()
     }
     response.render("edit_team", { "OneTeam": team, "players": allPlayers })
 }
@@ -47,43 +48,3 @@ async function teamDelAction(request, response) {
 }
 
 module.exports = router
-
-/*
-async function carShowAction(request, response) {
-    // response.send("SHOW ACTION");
-    var oneCar = await carRepo.getOneCar(request.params.carId);
-    response.render("cars_show", { "oneCar": oneCar });
-}
-async function carEditAction(request, response) {
-    // response.send("EDIT ACTION");
-    var brands = await carRepo.getAllBrands();
-    var carId = request.params.carId;
-    if (carId !== "0")
-        var car = await carRepo.getOneCar(carId);
-    else
-        var car = carRepo.getBlankCar();
-    response.render("cars_edit", { "oneCar": car, "brands": brands });
-}
-async function carDelAction(request, response) {
-    // response.send("DEL ACTION");
-    // TODO: remove extras for car, unless the car cannot be removed!!!
-    var numRows = await carRepo.delOneCar(request.params.carId);
-    request.session.flashMessage = "ROWS DELETED: " + numRows;
-    response.redirect("/cars/list");
-}
-async function carUpdateAction(request, response) {
-    // response.send("UPDATE ACTION");
-    var carId = request.params.carId;
-    if (carId === "0") carId = await carRepo.addOneCar(request.body.car_brand);
-    var isFancy = request.body.car_isFancy === undefined ? 0 : 1;
-    var numRows = await carRepo.editOneCar(carId,
-        request.body.car_brand,
-        request.body.car_name,
-        request.body.car_baseprice,
-        isFancy,
-        request.body.car_realPrice);
-
-    request.session.flashMessage = "ROWS UPDATED: " + numRows;
-    response.redirect("/cars/list");
-}
-*/

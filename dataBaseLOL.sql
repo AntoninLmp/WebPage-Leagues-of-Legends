@@ -7,7 +7,7 @@ DROP TABLE if exists champions;
 
 CREATE TABLE champions(
     id_champion varchar(100),
-    key_champion int,
+    key_champion int PRIMARY KEY,
     name varchar(100),
     title varchar(100),
     tags_0 varchar(100),
@@ -46,8 +46,9 @@ CREATE TABLE player (
     player_pseudo varchar(100),
     player_country varchar(100),
     player_team varchar(100) ,
-    player_favCaract varchar(100),
-    player_role varchar(100)
+    player_favCaract int,
+    player_role varchar(100),
+    CONSTRAINT fk_favCaract FOREIGN KEY (player_favCaract) REFERENCES champions(key_champion)
 );
 
 CREATE TABLE team(
@@ -113,6 +114,7 @@ CREATE TABLE history(
 INSERT INTO history VALUES
     (NULL, "ashe", 12.99, now(), "BUY"), 
     (NULL, "leesin", 13.99, now(), "SELL");
+
 
 INSERT INTO champions VALUES ('aatrox', '266', 'Aatrox', 'the Darkin Blade', 'Fighter', 'Tank', '580', '90', '0', '0', '345', '38', '3.25', '32.1', '1.25', '175', '3', '1', '0', '0', '0', '0', '60', '5', '2.5', '0.651', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Aatrox.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion0.png', '0', '0', 'Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find...'),
  ('ahri', '103', 'Ahri', 'the Nine-Tailed Fox', 'Mage', 'Assassin', '526', '92', '418', '25', '330', '20.88', '3.5', '30', '0.5', '550', '5.5', '0.6', '8', '0.8', '0', '0', '53.04', '3', '2', '0.668', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Ahri.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion0.png', '48', '0', 'Innately connected to the latent power of Runeterra, Ahri is a vastaya who can reshape magic into orbs of raw energy. She revels in toying with her prey by manipulating their emotions before devouring their life essence. Despite her predatory nature...'),
@@ -275,4 +277,39 @@ INSERT INTO champions VALUES ('aatrox', '266', 'Aatrox', 'the Darkin Blade', 'Fi
 
 
 
+
+
+
+
+INSERT INTO player VALUES 
+ 	(1,"LEE","SANGHYEOK","Faker", "Korean", "T1" ,266,"mid"), 
+    (2,"LEE","MINHYUNG","Gumayusi", "Korean", "team" ,103,"support"),
+    (3,"RAU","GABRIEL","Bwipo", "Belgium", "Fnatic" ,84,"mid"),
+    (4,"TIAN","YE","Meiko", "China", "team" ,34,"support"),
+    (5,"YECHAN","LEE","Scout", "China", "team" ,1,"support"),
+    (6,"HUANG","ROBERT","Blaber", "USA", "team",523,"jungle"),
+    (7,"LAFLAMME","PHILIPPE","Vulcan", "USA", "team" ,63,"jungle"),
+    (8,"PARK","GI-TAE","Morgan", "Korean", "team" ,201,"mid"),
+    (9,"JO","YONGIN","CoreJJ", "USA", "team" ,51,"jungle"),
+    (10,"JENSEN","NICOLAJ","Jensen", "USA", "team" ,119,"mid");
+
+INSERT INTO team VALUES (NULL, "Fnatic", 12,0,"Europe",1,2,3,4,5);
+INSERT INTO team VALUES (NULL, "G2", 65,23,"Europe",5,6,7,8,6);
+INSERT INTO team VALUES (NULL, "T1", 23,43,"Europe",9,10,1,2,2);
+
+
+CREATE TABLE popup(
+    pop_id int auto_increment PRIMARY KEY,
+    pop_picture varchar(1000),
+    pop_price float NOT NULL,
+    pop_quantity int
+);
+
+INSERT INTO popup VALUES
+    (NULL, "https://www.cdiscount.com/pdt2/0/7/7/1/700x700/fun0889698103077/rw/funko-figurine-league-of-legends-ashe-pop-10cm.jpg", 12.99, 4), 
+    (NULL, "https://commentseruiner.com/25362-large_default/figurine-pop-league-of-legends-braum.jpg", 15.99, 7), 
+    (NULL, "https://www.cdiscount.com/pdt2/0/2/2/1/700x700/fun0889698103022/rw/funko-figurine-league-of-legends-vi-pop-10cm.jpg", 13.99, 8),
+    (NULL, "https://www.cdiscount.com/pdt2/0/6/0/1/700x700/fun0889698103060/rw/funko-figurine-league-of-legends-lee-sin-pop-1.jpg", 13.99, 5),
+    (NULL, "https://commentseruiner.com/24298-large_default/figurine-pop-league-of-legends-thresh.jpg", 49.99, 5),
+    (NULL, "https://www.cdiscount.com/pdt2/1/4/9/1/700x700/fun0889698118149/rw/funko-figurine-league-of-legends-miss-fortune.jpg", 39.99, 5);
 
