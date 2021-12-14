@@ -23,21 +23,19 @@ async function listTeam(request, response) {
 }
 async function teamEditAction(request, response) {
     if (request.params.teamId == 0) {
-        var team = await teamRepo.getBlankTeam(request.params.teamId);
-        var allPlayers = "editor"
+        var team = await teamRepo.getBlankTeam();
     } else {
         var team = await teamRepo.getOneTeam(request.params.teamId)
-        var allPlayers = await playersRepo.getAllPlayers()
     }
+    var allPlayers = await playersRepo.getAllPlayers()
     response.render("edit_team", { "OneTeam": team, "players": allPlayers })
 }
 async function teamUpdateAction(request, response) {
     if (request.params.teamId === "0") {
-        var numRows = await teamRepo.addOneTeam(request.body.team_name, request.body.team_victory, request.body.team_defeat, request.body.team_continent, 1, 2, 3, 4, 5);
+        var numRows = await teamRepo.addOneTeam(request.body.team_name, request.body.team_victory, request.body.team_defeat, request.body.team_continent, request.body.player_id[0], request.body.player_id[1], request.body.player_id[2], request.body.player_id[3], request.body.player_id[4]);
     } else {
         var numRows = await teamRepo.editOneTeam(request.params.teamId, request.body.team_name, request.body.team_victory, request.body.team_defeat, request.body.team_continent, 1, 2, 3, 4, 5);
     }
-
     request.session.flashMessage = "ROWS UPDATED: " + numRows;
     response.redirect("/team/list");
 }
