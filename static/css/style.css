@@ -39,6 +39,7 @@ body{
     width: 90%;
     text-decoration: none;
     list-style: none;
+    align-items: center;
 }
 
 
@@ -104,4 +105,8 @@ body{
 }
 .bg_blue3{
     background-color: #102838;
+}
+
+@media screen and (min-width: 925px){
+    
 }

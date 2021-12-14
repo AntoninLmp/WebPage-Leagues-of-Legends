@@ -5,6 +5,7 @@ module.exports = {
     getFigurineModel() {
         return {
             "pop_id": "X",
+            "pop_name": "X",
             "pop_picture": 0,
             "pop_price": 0,
             "pop_quantity": 0
@@ -17,6 +18,23 @@ module.exports = {
             const rows = await conn.query(sql)
             conn.end()
             return rows
+        } catch (error) {
+            console.log(error)
+            throw error
+        }
+    },
+    async getOneFigurine(popupId) {
+        try {
+            conn = await pool.getConnection()
+            sql = "SELECT * FROM popup WHERE pop_id = ?"
+            const rows = await conn.query(sql, popupId)
+            conn.end()
+            console.log("ROWS FETCHED: " + rows.length)
+            if (rows.length == 1) {
+                return rows[0]
+            } else {
+                return false
+            }
         } catch (error) {
             console.log(error)
             throw error

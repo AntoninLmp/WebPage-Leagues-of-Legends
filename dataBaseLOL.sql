@@ -69,6 +69,52 @@ CREATE TABLE team(
     CONSTRAINT fk_jungle FOREIGN KEY (player_jungle) REFERENCES player(player_id)
 );
 
+INSERT INTO player VALUES 
+ 	(1,"LEE","SANGHYEOK","Faker", "Korean", "T1" ,"ryze","mid"), 
+    (2,"LEE","MINHYUNG","Gumayusi", "Korean", "team" ,"aatrox","support"),
+    (3,"RAU","GABRIEL","Bwipo", "Belgium", "Fnatic" ,"aatrox","mid"),
+    (4,"TIAN","YE","Meiko", "China", "team" ,"aatrox","support"),
+    (5,"YECHAN","LEE","Scout", "China", "team" ,"aatrox","support"),
+    (6,"HUANG","ROBERT","Blaber", "USA", "team","aatrox","jungle"),
+    (7,"LAFLAMME","PHILIPPE","Vulcan", "USA", "team" ,"aatrox","jungle"),
+    (8,"PARK","GI-TAE","Morgan", "Korean", "team" ,"aatrox","mid"),
+    (9,"JO","YONGIN","CoreJJ", "USA", "team" ,"aatrox","jungle"),
+    (10,"JENSEN","NICOLAJ","Jensen", "USA", "team" ,"aatrox","mid");
+
+INSERT INTO team VALUES (NULL, "Fnatic", 12,0,"Europe",1,2,3,4,5);
+INSERT INTO team VALUES (NULL, "G2", 65,23,"Europe",5,6,7,8,6);
+INSERT INTO team VALUES (NULL, "T1", 23,43,"Europe",9,10,1,2,2);
+
+DROP TABLE if exists popup; 
+CREATE TABLE popup(
+    pop_id int auto_increment PRIMARY KEY,
+    pop_name varchar(100),
+    pop_picture varchar(1000),
+    pop_price float NOT NULL,
+    pop_quantity int
+);
+
+INSERT INTO popup VALUES
+    (NULL, "ashe", "https://www.cdiscount.com/pdt2/0/7/7/1/700x700/fun0889698103077/rw/funko-figurine-league-of-legends-ashe-pop-10cm.jpg", 12.99, 4), 
+    (NULL, "braum","https://commentseruiner.com/25362-large_default/figurine-pop-league-of-legends-braum.jpg", 15.99, 7), 
+    (NULL, "vi", "https://www.cdiscount.com/pdt2/0/2/2/1/700x700/fun0889698103022/rw/funko-figurine-league-of-legends-vi-pop-10cm.jpg", 13.99, 8),
+    (NULL, "leesin", "https://www.cdiscount.com/pdt2/0/6/0/1/700x700/fun0889698103060/rw/funko-figurine-league-of-legends-lee-sin-pop-1.jpg", 13.99, 5),
+    (NULL, "tresh", "https://commentseruiner.com/24298-large_default/figurine-pop-league-of-legends-thresh.jpg", 49.99, 5),
+    (NULL, "missfortune", "https://www.cdiscount.com/pdt2/1/4/9/1/700x700/fun0889698118149/rw/funko-figurine-league-of-legends-miss-fortune.jpg", 39.99, 5);
+
+DROP TABLE if exists history; 
+CREATE TABLE history(
+    history_id int auto_increment PRIMARY KEY,
+    history_name varchar(100), 
+    history_price float NOT NULL, 
+    history_date varchar(100), 
+    history_state varchar(20)
+);
+
+INSERT INTO history VALUES
+    (NULL, "ashe", 12.99, now(), "BUY"), 
+    (NULL, "leesin", 13.99, now(), "SELL");
+
 
 INSERT INTO champions VALUES ('aatrox', '266', 'Aatrox', 'the Darkin Blade', 'Fighter', 'Tank', '580', '90', '0', '0', '345', '38', '3.25', '32.1', '1.25', '175', '3', '1', '0', '0', '0', '0', '60', '5', '2.5', '0.651', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Aatrox.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion0.png', '0', '0', 'Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find...'),
  ('ahri', '103', 'Ahri', 'the Nine-Tailed Fox', 'Mage', 'Assassin', '526', '92', '418', '25', '330', '20.88', '3.5', '30', '0.5', '550', '5.5', '0.6', '8', '0.8', '0', '0', '53.04', '3', '2', '0.668', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Ahri.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion0.png', '48', '0', 'Innately connected to the latent power of Runeterra, Ahri is a vastaya who can reshape magic into orbs of raw energy. She revels in toying with her prey by manipulating their emotions before devouring their life essence. Despite her predatory nature...'),

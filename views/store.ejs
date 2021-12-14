@@ -6,39 +6,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/static/Images/icons/lol-league-of-Legends-logo.png">
-    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="/static/css/store.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <title>Store League of Legend</title>
 </head>
 
 <body>
     <%- include('header') %>
-
-        <section id="storeFig">
-            <aside class="displayFlex">
-                <% for(var fig of store) { %>
-                    <div class="center">
-                        <img src="<%= fig.pop_picture %> " class="figurineImage" alt="figurine">
-                        <div class="figPrice gold">
-                            <p>
-                                <%= fig.pop_price%> €
-                            </p>
-                            <p>
-                                <%= fig.pop_quantity %> pieces
-                            </p>
+        <main>
+            <section id="storeFig">
+                <aside class="displayFlex">
+                    <% for(var fig of store) { %>
+                        <div class="center">
+                            <img src="<%= fig.pop_picture %> " class="figurineImage" alt="figurine">
+                            <div class="figPrice gold">
+                                <p>
+                                    <%= fig.pop_price%> €
+                                </p>
+                                <p>
+                                    <%= fig.pop_quantity %> pieces
+                                </p>
+                            </div>
+                            <a href="/store/figurine/buy<%= fig.pop_id %>">
+                                <button type="button" class="button_">Buy online</button>
+                            </a>
+                            <a href="/store/figurine/sell<%= fig.pop_id %>">
+                                <button type="button" class="button_">Sell online</button>
+                            </a>
                         </div>
-                        <a href="/store/figurine/buy<%= fig.pop_id %>">
-                            <button type="button" class="button_">Buy online</button>
-                        </a>
-                        <a href="/store/figurine/sell<%= fig.pop_id %>">
-                            <button type="button" class="button_">Sell online</button>
-                        </a>
-
-                    </div>
-                    <% } %>
-            </aside>
-        </section>
-
+                        <% } %>
+                </aside>
+            </section>
+            <section>
+                <h1 class="gold center" id="h1_sap">Sales and purchase history</h1>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <th class="headTable">ID</th>
+                        <th class="headTable">Name</th>
+                        <th class="headTable">Price</th>
+                        <th class="headTable">Date</th>
+                        <th class="headTable">State</th>
+                        <th class="headTable">Show</th>
+                        <th class="headTable">Edit</th>
+                        <th class="headTable">Delete</th>
+                    </thead>
+                    <% for(var h of history) {%>
+                        <tr>
+                            <td>
+                                <%= h.history_id %>
+                            </td>
+                            <td>
+                                <%= h.history_name %>
+                            </td>
+                            <td>
+                                <%= h.history_price %> €
+                            </td>
+                            <td>
+                                <%= h.history_date %>
+                            </td>
+                            <td>
+                                <%= h.history_state %>
+                            </td>
+                            <td>
+                                <a href='/store/figurine/show<%= h.history_id %>'>
+                                    <button type="button"> Show</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href='/store/figurine/edit<%= h.history_id %>'>
+                                    <button type="button"> Edit</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href='/store/figurine/delete<%= h.history_id %>'>
+                                    <button type="button"> Delete</button>
+                                </a>
+                            </td>
+                        </tr>
+                        <% } %>
+                </table>
+            </section>
+        </main>
         <%- include('footer') %>
 
 </body>
