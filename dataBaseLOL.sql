@@ -3,7 +3,10 @@ USE leagueOfLengend;
 
 DROP TABLE if exists team;
 DROP TABLE if exists player; 
-DROP TABLE if exists champions; 
+DROP TABLE if exists champions;
+DROP TABLE if exists popup;
+DROP TABLE if exists history; 
+
 
 CREATE TABLE champions(
     id_champion varchar(100),
@@ -69,23 +72,6 @@ CREATE TABLE team(
     CONSTRAINT fk_jungle FOREIGN KEY (player_jungle) REFERENCES player(player_id)
 );
 
-INSERT INTO player VALUES 
- 	(1,"LEE","SANGHYEOK","Faker", "Korean", "T1" ,"ryze","mid"), 
-    (2,"LEE","MINHYUNG","Gumayusi", "Korean", "team" ,"aatrox","support"),
-    (3,"RAU","GABRIEL","Bwipo", "Belgium", "Fnatic" ,"aatrox","mid"),
-    (4,"TIAN","YE","Meiko", "China", "team" ,"aatrox","support"),
-    (5,"YECHAN","LEE","Scout", "China", "team" ,"aatrox","support"),
-    (6,"HUANG","ROBERT","Blaber", "USA", "team","aatrox","jungle"),
-    (7,"LAFLAMME","PHILIPPE","Vulcan", "USA", "team" ,"aatrox","jungle"),
-    (8,"PARK","GI-TAE","Morgan", "Korean", "team" ,"aatrox","mid"),
-    (9,"JO","YONGIN","CoreJJ", "USA", "team" ,"aatrox","jungle"),
-    (10,"JENSEN","NICOLAJ","Jensen", "USA", "team" ,"aatrox","mid");
-
-INSERT INTO team VALUES (NULL, "Fnatic", 12,0,"Europe",1,2,3,4,5);
-INSERT INTO team VALUES (NULL, "G2", 65,23,"Europe",5,6,7,8,6);
-INSERT INTO team VALUES (NULL, "T1", 23,43,"Europe",9,10,1,2,2);
-
-DROP TABLE if exists popup; 
 CREATE TABLE popup(
     pop_id int auto_increment PRIMARY KEY,
     pop_name varchar(100),
@@ -94,15 +80,6 @@ CREATE TABLE popup(
     pop_quantity int
 );
 
-INSERT INTO popup VALUES
-    (NULL, "ashe", "https://www.cdiscount.com/pdt2/0/7/7/1/700x700/fun0889698103077/rw/funko-figurine-league-of-legends-ashe-pop-10cm.jpg", 12.99, 4), 
-    (NULL, "braum","https://commentseruiner.com/25362-large_default/figurine-pop-league-of-legends-braum.jpg", 15.99, 7), 
-    (NULL, "vi", "https://www.cdiscount.com/pdt2/0/2/2/1/700x700/fun0889698103022/rw/funko-figurine-league-of-legends-vi-pop-10cm.jpg", 13.99, 8),
-    (NULL, "leesin", "https://www.cdiscount.com/pdt2/0/6/0/1/700x700/fun0889698103060/rw/funko-figurine-league-of-legends-lee-sin-pop-1.jpg", 13.99, 5),
-    (NULL, "tresh", "https://commentseruiner.com/24298-large_default/figurine-pop-league-of-legends-thresh.jpg", 49.99, 5),
-    (NULL, "missfortune", "https://www.cdiscount.com/pdt2/1/4/9/1/700x700/fun0889698118149/rw/funko-figurine-league-of-legends-miss-fortune.jpg", 39.99, 5);
-
-DROP TABLE if exists history; 
 CREATE TABLE history(
     history_id int auto_increment PRIMARY KEY,
     history_name varchar(100), 
@@ -110,6 +87,15 @@ CREATE TABLE history(
     history_date varchar(100), 
     history_state varchar(20)
 );
+
+INSERT INTO popup VALUES
+    (NULL, "https://www.cdiscount.com/pdt2/0/7/7/1/700x700/fun0889698103077/rw/funko-figurine-league-of-legends-ashe-pop-10cm.jpg", 12.99, 4), 
+    (NULL, "https://commentseruiner.com/25362-large_default/figurine-pop-league-of-legends-braum.jpg", 15.99, 7), 
+    (NULL, "https://www.cdiscount.com/pdt2/0/2/2/1/700x700/fun0889698103022/rw/funko-figurine-league-of-legends-vi-pop-10cm.jpg", 13.99, 8),
+    (NULL, "https://www.cdiscount.com/pdt2/0/6/0/1/700x700/fun0889698103060/rw/funko-figurine-league-of-legends-lee-sin-pop-1.jpg", 13.99, 5),
+    (NULL, "https://commentseruiner.com/24298-large_default/figurine-pop-league-of-legends-thresh.jpg", 49.99, 5),
+    (NULL, "https://www.cdiscount.com/pdt2/1/4/9/1/700x700/fun0889698118149/rw/funko-figurine-league-of-legends-miss-fortune.jpg", 39.99, 5);
+
 
 INSERT INTO history VALUES
     (NULL, "ashe", 12.99, now(), "BUY"), 
@@ -270,17 +256,6 @@ INSERT INTO champions VALUES ('aatrox', '266', 'Aatrox', 'the Darkin Blade', 'Fi
  ('zyra', '143', 'Zyra', 'Rise of the Thorns', 'Mage', 'Support', '504', '79', '418', '25', '340', '29', '3', '30', '0.5', '575', '5.5', '0.5', '13', '0.4', '0', '0', '53.376', '3.2', '2.11', '0.625', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Zyra.png', 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/sprite/champion5.png', '48', '0', 'Born in an ancient, sorcerous catastrophe, Zyra is the wrath of nature given form—an alluring hybrid of plant and human, kindling new life with every step. She views the many mortals of Valoran as little more than prey for her seeded progeny, and thinks...');;
 
 
-
-
-
- 
-
-
-
-
-
-
-
 INSERT INTO player VALUES 
  	(1,"LEE","SANGHYEOK","Faker", "Korean", "T1" ,266,"mid"), 
     (2,"LEE","MINHYUNG","Gumayusi", "Korean", "team" ,103,"support"),
@@ -293,23 +268,11 @@ INSERT INTO player VALUES
     (9,"JO","YONGIN","CoreJJ", "USA", "team" ,51,"jungle"),
     (10,"JENSEN","NICOLAJ","Jensen", "USA", "team" ,119,"mid");
 
-INSERT INTO team VALUES (NULL, "Fnatic", 12,0,"Europe",1,2,3,4,5);
-INSERT INTO team VALUES (NULL, "G2", 65,23,"Europe",5,6,7,8,6);
-INSERT INTO team VALUES (NULL, "T1", 23,43,"Europe",9,10,1,2,2);
+INSERT INTO team VALUES 
+    (NULL, "Fnatic", 12,0,"Europe",1,2,3,4,5);
+    (NULL, "G2", 65,23,"Europe",5,1,7,8,6);
+    (NULL, "T1", 23,43,"Europe",9,10,1,3,2);
 
 
-CREATE TABLE popup(
-    pop_id int auto_increment PRIMARY KEY,
-    pop_picture varchar(1000),
-    pop_price float NOT NULL,
-    pop_quantity int
-);
 
-INSERT INTO popup VALUES
-    (NULL, "https://www.cdiscount.com/pdt2/0/7/7/1/700x700/fun0889698103077/rw/funko-figurine-league-of-legends-ashe-pop-10cm.jpg", 12.99, 4), 
-    (NULL, "https://commentseruiner.com/25362-large_default/figurine-pop-league-of-legends-braum.jpg", 15.99, 7), 
-    (NULL, "https://www.cdiscount.com/pdt2/0/2/2/1/700x700/fun0889698103022/rw/funko-figurine-league-of-legends-vi-pop-10cm.jpg", 13.99, 8),
-    (NULL, "https://www.cdiscount.com/pdt2/0/6/0/1/700x700/fun0889698103060/rw/funko-figurine-league-of-legends-lee-sin-pop-1.jpg", 13.99, 5),
-    (NULL, "https://commentseruiner.com/24298-large_default/figurine-pop-league-of-legends-thresh.jpg", 49.99, 5),
-    (NULL, "https://www.cdiscount.com/pdt2/1/4/9/1/700x700/fun0889698118149/rw/funko-figurine-league-of-legends-miss-fortune.jpg", 39.99, 5);
 
