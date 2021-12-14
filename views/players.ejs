@@ -10,11 +10,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/team.css">
@@ -28,16 +25,12 @@
             <section>
                 <h1 class="gold_2 center text_title">How do League of Legend competitions work?</h1>
                 <p class="text_description">
-                    Legend competitions consist of teams of 5 players assisted by a coach and several analysts. In the
-                    world championship, teams can only have one substitute, but in the championships, a more or less
-                    free number of substitutes is tolerated. There are a multitude of national or continental
-                    championships around the world, but only 12 leagues qualify for the annual world championship. These
-                    are the 12 major leagues in the competitive world of League of Legends.
+                    Legend competitions consist of teams of 5 players assisted by a coach and several analysts. In the world championship, teams can only have one substitute, but in the championships, a more or less free number of substitutes is tolerated. There are a multitude
+                    of national or continental championships around the world, but only 12 leagues qualify for the annual world championship. These are the 12 major leagues in the competitive world of League of Legends.
 
                 </p>
                 <div id="carte">
-                    <iframe src="https://www.google.com/maps/d/embed?mid=1krJaFJMIstGKO3NdT752f4iGA_arJv9p" width="680"
-                        height="300">
+                    <iframe src="https://www.google.com/maps/d/embed?mid=1krJaFJMIstGKO3NdT752f4iGA_arJv9p" width="680" height="300">
                     </iframe>
                 </div>
             </section>
@@ -100,11 +93,24 @@
                                     <button class="buttonEdit"> Edit </button>
                                 </a>
                             </td>
-                            <td class="noBorder">
-                                <a href='/players/del/<%= p.player_id %>'>
-                                    <button class="buttonEdit"> Delete</button>
-                                </a>
-                            </td>
+                            <% var f = false%>
+                                <%for(var t of teams){%>
+                                    <% if((t.player_top == p.player_id)||(t.player_mid == p.player_id)||(t.player_adc == p.player_id)||(t.player_support == p.player_id)||(t.player_jungle == p.player_id)){%>
+                                        <td class="noBorder">
+                                            <a href=''>
+                                                <button class="buttonEdit" disabled> Delete</button>
+                                            </a>
+                                        </td>
+                                        <% f = true %>
+                                            <% break %>
+                                                <% } %>
+                                                    <%}if (f == false){ %>
+                                                        <td class="noBorder">
+                                                            <a href='/players/del/<%= p.player_id %>'>
+                                                                <button class="buttonEdit"> Delete</button>
+                                                            </a>
+                                                        </td>
+                                                        <% } %>
                         </tr>
                         <% } %>
                 </table>

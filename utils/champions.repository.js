@@ -1,7 +1,7 @@
 // utils/cars.repository.js
 var pool = require("./db.js")
-// JS include = relative to CONTROLLERS 
-// VIEW include = relative to VIEWS
+    // JS include = relative to CONTROLLERS 
+    // VIEW include = relative to VIEWS
 module.exports = {
     getChampionModel() { // defines the entity model
         return {
@@ -80,43 +80,4 @@ module.exports = {
             throw err
         }
     }
-
-
-    /* ,
-    async delOneCar(carId) {
-        try {
-            conn = await pool.getConnection()
-            sql = "DELETE FROM cars WHERE car_id = ?"
-            const okPacket = await conn.query(sql, carId) // affectedRows, insertId
-            conn.end()
-            console.log(okPacket)
-            return okPacket.affectedRows
-        } catch (err) {
-            throw err
-        }
-    },
-    async addOneCar(brandId) {
-        try {
-            conn = await pool.getConnection()
-            sql = "INSERT INTO cars (car_id, car_brand) VALUES (NULL, ?) "
-            const okPacket = await conn.query(sql, brandId) // affectedRows, insertId
-            conn.end()
-            console.log(okPacket)
-            return okPacket.insertId
-        } catch (err) {
-            throw err
-        }
-    },
-    async editOneCar(carId, carBrand, carName, carBaseprice, carIsfancy, carRealprice) {
-        try {
-            conn = await pool.getConnection()
-            sql = "UPDATE cars SET car_brand=?, car_name=?, car_baseprice=?, car_isFancy=?, car_realPrice=? WHERE car_id=? " // TODO: named parameters? :something
-            const okPacket = await conn.query(sql, [carBrand, carName, carBaseprice, carIsfancy, carRealprice, carId])
-            conn.end()
-            console.log(okPacket)
-            return okPacket.affectedRows
-        } catch (err) {
-            throw err
-        }
-    }*/
 }
