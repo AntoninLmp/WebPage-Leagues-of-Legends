@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/team.css">
+    <link rel="icon" href="/static/Images/icons/lol-league-of-Legends-logo.png">
+    <title>League of Legends - Players Page</title>
+</head>
+
+<body>
+    <%- include('header') %>
+        <main>
+            <section>
+                <a class="center gold_2" id="title_register" href="/team/edit/0">Register your team</a>
+                <p id="text_register">You too have a team, you like to play together and you think you have a chance to compete with other teams so don't wait, register your team now!</p>
+
+            </section>
+            <section>
+                <h1 class="center gold_2 title_register">Team in competition</h1>
+
+                <table>
+                    <tr>
+                        <td class="headTable">ID</td>
+                        <td class="headTable">First Name</td>
+                        <td class="headTable">Last Name</td>
+                        <td class="headTable">Pseudo</td>
+                        <td class="headTable">Country</td>
+                        <td class="headTable">Team</td>
+                        <td class="headTable">Favorite Caracter</td>
+                        <td class="headTable">Role</td>
+                    </tr>
+                    <% for (var p of players) { %>
+                        <tr>
+                            <td>
+                                <%= p.player_id %>
+                            </td>
+                            <td>
+                                <%= p.player_firstName %>
+                            </td>
+                            <td>
+                                <%= p.player_lastName %>
+                            </td>
+                            <td>
+                                <%= p.player_pseudo %>
+                            </td>
+                            <td>
+                                <%= p.player_country %>
+                            </td>
+                            <td>
+                                <%= p.player_team %>
+                            </td>
+                            <td>
+                                <%= p.player_favCaract %>
+                            </td>
+                            <td>
+                                <%= p.player_role%>
+                            </td>
+
+                            <td class="noBorder">
+                                <button class="buttonEdit">
+                                        <a href='/players/edit/<%= p.player_id %>'>Edit</a>
+                                    </button>
+                            </td>
+                            <td class="noBorder">
+                                <button class="buttonEdit">
+                                        <a href='/players/del/<%= p.player_id %>'>Delete</a>
+                                    </button>
+                            </td>
+                        </tr>
+                        <% } %>
+                </table>
+            </section>
+            <section>
+                <a class="center gold_2" id="title_register" href="/players/edit/0">Register your player</a>
+            </section>
+        </main>
+        <%- include('footer') %>
+</body>
+
+</html>
