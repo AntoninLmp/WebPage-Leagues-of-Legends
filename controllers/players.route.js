@@ -17,8 +17,9 @@ function playersRootAction(request, response) {
 }
 
 async function listplayers(request, response) {
-    let players = await playersRepo.getAllPlayers()
-    response.render("players", { "players": players })
+    var players = await playersRepo.getAllPlayers()
+    var tableChampions = await championsRepo.getAllChampions()
+    response.render("players", { "players": players, "champions": tableChampions })
 }
 
 async function playersEditAction(request, response) {
