@@ -6,11 +6,11 @@ module.exports = {
     getBlankPlayer() { // defines the entity model
         return {
             "player_id": 0,
-            "player_firstName": "XXXX",
-            "player_lastName": 0,
-            "player_pseudo": 0,
-            "player_country": 0,
-            "player_team": 0,
+            "player_firstName": "X",
+            "player_lastName": "X",
+            "player_pseudo": "X",
+            "player_country": "X",
+            "player_team": "X",
             "player_favCaract": 0,
             "player_role": 0
         };
