@@ -54,7 +54,13 @@
                                 <%= p.player_team %>
                             </td>
                             <td>
-                                <%= p.player_favCaract %>
+                                <% for(var c of champions){%>
+                                    <% if(p.player_favCaract==c.key_champion) {%>
+                                        <a href="/champions/show/<%= c.id_champion %> ">
+                                            <%= c.name %>
+                                        </a>
+                                        <% } %>
+                                            <% } %>
                             </td>
                             <td>
                                 <%= p.player_role%>
