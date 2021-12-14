@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const playersRepo = require('../utils/players.repository')
 const championsRepo = require('../utils/champions.repository')
+const teamRepository = require('../utils/team.repository')
 
 
 router.get('/', playersRootAction)
@@ -20,7 +21,8 @@ function playersRootAction(request, response) {
 async function listplayers(request, response) {
     var players = await playersRepo.getAllPlayers()
     var tableChampions = await championsRepo.getAllChampions()
-    response.render("players", { "players": players, "champions": tableChampions })
+    var tableTeam = await teamRepository.getAllTeam()
+    response.render("players", { "players": players, "champions": tableChampions, "teams": tableTeam })
 }
 
 async function playersEditAction(request, response) {
