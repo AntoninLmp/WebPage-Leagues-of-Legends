@@ -7,6 +7,7 @@ router.get('/', teamRootAction)
 router.get('/list', listTeam)
 router.get('/edit/:teamId', teamEditAction)
 router.get('/del/:teamId', teamDelAction)
+router.get('/show/:teamId', teamShowAction)
 router.post('/update/:teamId', teamUpdateAction)
 
 
@@ -45,6 +46,13 @@ async function teamDelAction(request, response) {
     var numRows = await teamRepo.delOneTeam(request.params.teamId);
     request.session.flashMessage = "ROWS DELETED: " + numRows;
     response.redirect("/team/list");
+}
+
+async function teamShowAction(request, response) {
+    var team = await teamRepo.getOneTeam(request.params.teamId);
+    var players = await playersRepo.getAllPlayers()
+    console.log(players)
+    response.render("team_show", { "OneTeam": team, "players": players })
 }
 
 module.exports = router

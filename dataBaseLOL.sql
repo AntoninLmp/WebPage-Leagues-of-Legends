@@ -71,7 +71,7 @@ CREATE TABLE team(
     CONSTRAINT fk_support FOREIGN KEY (player_support) REFERENCES player(player_id),
     CONSTRAINT fk_jungle FOREIGN KEY (player_jungle) REFERENCES player(player_id)
 );
-
+DROP TABLE if exists popup; 
 CREATE TABLE popup(
     pop_id int auto_increment PRIMARY KEY,
     pop_name varchar(100),
@@ -80,6 +80,15 @@ CREATE TABLE popup(
     pop_quantity int
 );
 
+INSERT INTO popup VALUES
+    (NULL, "ashe", "https://www.cdiscount.com/pdt2/0/7/7/1/700x700/fun0889698103077/rw/funko-figurine-league-of-legends-ashe-pop-10cm.jpg", 12.99, 4), 
+    (NULL, "braum","https://commentseruiner.com/25362-large_default/figurine-pop-league-of-legends-braum.jpg", 15.99, 7), 
+    (NULL, "vi", "https://www.cdiscount.com/pdt2/0/2/2/1/700x700/fun0889698103022/rw/funko-figurine-league-of-legends-vi-pop-10cm.jpg", 13.99, 8),
+    (NULL, "leesin", "https://www.cdiscount.com/pdt2/0/6/0/1/700x700/fun0889698103060/rw/funko-figurine-league-of-legends-lee-sin-pop-1.jpg", 13.99, 5),
+    (NULL, "tresh", "https://commentseruiner.com/24298-large_default/figurine-pop-league-of-legends-thresh.jpg", 49.99, 5),
+    (NULL, "missfortune", "https://www.cdiscount.com/pdt2/1/4/9/1/700x700/fun0889698118149/rw/funko-figurine-league-of-legends-miss-fortune.jpg", 39.99, 5);
+
+DROP TABLE if exists history; 
 CREATE TABLE history(
     history_id int auto_increment PRIMARY KEY,
     history_name varchar(100), 
@@ -87,15 +96,6 @@ CREATE TABLE history(
     history_date varchar(100), 
     history_state varchar(20)
 );
-
-INSERT INTO popup VALUES
-    (NULL, "https://www.cdiscount.com/pdt2/0/7/7/1/700x700/fun0889698103077/rw/funko-figurine-league-of-legends-ashe-pop-10cm.jpg", 12.99, 4), 
-    (NULL, "https://commentseruiner.com/25362-large_default/figurine-pop-league-of-legends-braum.jpg", 15.99, 7), 
-    (NULL, "https://www.cdiscount.com/pdt2/0/2/2/1/700x700/fun0889698103022/rw/funko-figurine-league-of-legends-vi-pop-10cm.jpg", 13.99, 8),
-    (NULL, "https://www.cdiscount.com/pdt2/0/6/0/1/700x700/fun0889698103060/rw/funko-figurine-league-of-legends-lee-sin-pop-1.jpg", 13.99, 5),
-    (NULL, "https://commentseruiner.com/24298-large_default/figurine-pop-league-of-legends-thresh.jpg", 49.99, 5),
-    (NULL, "https://www.cdiscount.com/pdt2/1/4/9/1/700x700/fun0889698118149/rw/funko-figurine-league-of-legends-miss-fortune.jpg", 39.99, 5);
-
 
 INSERT INTO history VALUES
     (NULL, "ashe", 12.99, now(), "BUY"), 
@@ -269,9 +269,10 @@ INSERT INTO player VALUES
     (10,"JENSEN","NICOLAJ","Jensen", "USA", "team" ,119,"mid");
 
 INSERT INTO team VALUES 
-    (NULL, "Fnatic", 12,0,"Europe",1,2,3,4,5);
-    (NULL, "G2", 65,23,"Europe",5,1,7,8,6);
+    (NULL, "Fnatic", 12,0,"Europe",1,2,3,4,5),
+    (NULL, "G2", 65,23,"Europe",5,1,7,8,6),
     (NULL, "T1", 23,43,"Europe",9,10,1,3,2);
+
 
 
 

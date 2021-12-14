@@ -8,6 +8,7 @@ router.get('/', playersRootAction)
 router.get('/list', listplayers)
 router.get('/edit/:playerId', playersEditAction)
 router.get('/del/:playerId', playerDelAction)
+router.get('/show/:playerId', playerShowAction)
 router.post('/update/:playerId', playerUpdateAction)
 
 
@@ -26,11 +27,10 @@ async function playersEditAction(request, response) {
     console.log(request.params.playerId)
     if (request.params.playerId == 0) {
         var onePlayer = playersRepo.getBlankPlayer();
-        var tableChampions = "editor"
     } else {
         var onePlayer = await playersRepo.getOnePLayer(request.params.playerId)
-        var tableChampions = await championsRepo.getAllChampions()
     }
+    var tableChampions = await championsRepo.getAllChampions()
     response.render("edit_player", { "player": onePlayer, "champions": tableChampions })
 }
 
@@ -50,4 +50,9 @@ async function playerDelAction(request, response) {
     response.redirect("/players/list");
 }
 
+async function playerShowAction(request, response) {
+    var player = await playersRepo.getOnePLayer(request.params.playerId);
+    var champions = await championsRepo.getAllChampions();
+    response.render("player_show", { "onePlayer": player, "champions": champions });
+}
 module.exports = router

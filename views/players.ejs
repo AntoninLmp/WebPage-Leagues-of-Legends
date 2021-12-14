@@ -15,12 +15,7 @@
     <%- include('header') %>
         <main>
             <section>
-                <a class="center gold_2" id="title_register" href="/team/edit/0">Register your team</a>
-                <p id="text_register">You too have a team, you like to play together and you think you have a chance to compete with other teams so don't wait, register your team now!</p>
-
-            </section>
-            <section>
-                <h1 class="center gold_2 title_register">Team in competition</h1>
+                <h1 class="center gold_2 title_register">PLAYERS</h1>
 
                 <table>
                     <tr>
@@ -56,16 +51,18 @@
                             <td>
                                 <% for(var c of champions){%>
                                     <% if(p.player_favCaract==c.key_champion) {%>
-                                        <a href="/champions/show/<%= c.id_champion %> ">
-                                            <%= c.name %>
-                                        </a>
-                                        <% } %>
+                                        <%= c.name %>
                                             <% } %>
+                                                <% } %>
                             </td>
                             <td>
                                 <%= p.player_role%>
                             </td>
-
+                            <td class="noBorder">
+                                <button class="buttonEdit">
+                                        <a href='/players/show/<%= p.player_id %>'>show</a>
+                                    </button>
+                            </td>
                             <td class="noBorder">
                                 <button class="buttonEdit">
                                         <a href='/players/edit/<%= p.player_id %>'>Edit</a>
