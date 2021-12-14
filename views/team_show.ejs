@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/team.css">
+    <link rel="icon" href="/static/Images/icons/lol-league-of-Legends-logo.png">
+    <title>Edit team</title>
+</head>
+
+<body>
+    <%- include('header') %>
+        <main>
+            <a href="/team/list">Back to list</a>
+            <table>
+                <tr>
+                    <td>ID</td>
+                    <td>
+                        <%= OneTeam.team_id %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>NAME</td>
+                    <td>
+                        <%= OneTeam.team_name %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>VICTORY</td>
+                    <td>
+                        <%= OneTeam.team_victory %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>DEFEAT</td>
+                    <td>
+                        <%= OneTeam.team_defeat %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CONTINENT</td>
+                    <td>
+                        <%= OneTeam.team_continent %>
+                    </td>
+                </tr>
+                <% for(var p of players){%>
+                    <% if(OneTeam.player_top==p.player_id){%>
+                        <tr>
+                            <td>TOP LINER PLAYER</td>
+                            <td>
+                                <a href="/players/show/<%= p.player_id %> ">
+                                    <%= p.player_pseudo %>
+                                </a>
+
+                            </td>
+                        </tr>
+                        <%}else if(OneTeam.player_mid==p.player_id){%>
+                            <tr>
+                                <td>MID LINER PLAYER</td>
+                                <td>
+                                    <a href="/players/show/<%= p.player_id %> ">
+                                        <%= p.player_pseudo  %>
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <%}else if(OneTeam.player_adc==p.player_id){%>
+                                <tr>
+                                    <td>ADC PLAYER</td>
+                                    <td>
+                                        <a href="/players/show/<%= p.player_id %> ">
+                                            <%= p.player_pseudo  %>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                                <%}else if(OneTeam.player_support==p.player_id){%>
+                                    <tr>
+                                        <td>SUPPORT PLAYER</td>
+                                        <td>
+                                            <a href="/players/show/<%= p.player_id %> ">
+                                                <%= p.player_pseudo  %>
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                    <%}else if(OneTeam.player_jungle==p.player_id){%>
+                                        <tr>
+                                            <td>JUNGLE PLAYER</td>
+                                            <td>
+                                                <a href="/players/show/<%= p.player_id %> ">
+                                                    <%= p.player_pseudo %>
+                                                </a>
+
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                            <% } %>
+            </table>
+        </main>
+
+</body>
+
+</html>

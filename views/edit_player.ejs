@@ -59,21 +59,25 @@
                             <tr>
                                 <td>Favorite Caractere</td>
                                 <td>
-                                    <% if(champions!=="editor" ) {%>
+                                    <select name="player_favCaract">
                                         <% for (var c of champions) { %>
-                                            <% if (player.player_favCaract==c.key_champion){ %>
-                                                <input type="text" name="player_favCaract"
-                                                    value="<%=player.player_favCaract %>">
-                                                <% } %>
-                                                    <% } %>
-                                                        <% }else {%>
-                                                            <input type="text" name="player_favCaract" value="266">
-                                                            <% }%>
+                                                <option value="<%=c.key_champion%>" <%-player.player_favCaract==c.key_champion ? "selected='selected'" : "" %>><%= c.name %> </option>
+                                        <% } %>
+                                    </select>
+
                                 </td>
                             </tr>
                             <tr>
                                 <td>role</td>
-                                <td><input type="text" name="player_role" value="<%= player.player_role%>"></td>
+                                <td>
+                                    <select name='player_role'>
+                                        <option value='top' <%- player.player_role=="top" ? "selected='selected'" : "" %>>top</option>
+                                        <option value='mid' <%- player.player_role=="mid" ? "selected='selected'" : "" %>>mid</option>
+                                        <option value='adc' <%- player.player_role=="adc" ? "selected='selected'" : "" %>>adc</option>
+                                        <option value='support' <%- player.player_role=="support" ? "selected='selected'" : "" %>>support</option>
+                                        <option value='jungle' <%- player.player_role=="jungle" ? "selected='selected'" : "" %>>jungle</option>
+                                    </select>
+                                </td>   
                             </tr>
                         </table>
                         <input type="submit" id="submitButton" value="Submit">

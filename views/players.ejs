@@ -29,6 +29,7 @@
                 <h1 class="center gold_2 title_register">Player in competition</h1>
 
                 <table class="table table-striped table-bordered table-hover table-dark">
+
                     <tr>
                         <td class="headTable">ID</td>
                         <td class="headTable">First Name</td>
@@ -64,16 +65,18 @@
                             <td>
                                 <% for(var c of champions){%>
                                     <% if(p.player_favCaract==c.key_champion) {%>
-                                        <a href="/champions/show/<%= c.id_champion %> ">
-                                            <%= c.name %>
-                                        </a>
-                                        <% } %>
+                                        <%= c.name %>
                                             <% } %>
+                                                <% } %>
                             </td>
                             <td>
                                 <%= p.player_role%>
                             </td>
-
+                            <td class="noBorder">
+                                <button class="buttonEdit">
+                                        <a href='/players/show/<%= p.player_id %>'>show</a>
+                                    </button>
+                            </td>
                             <td class="noBorder">
                                 <button class="buttonEdit">
                                     <a href='/players/edit/<%= p.player_id %>'>Edit</a>
