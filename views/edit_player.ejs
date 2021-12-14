@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/players.css">
+    <link rel="icon" href="/static/Images/icons/lol-league-of-Legends-logo.png">
+    <title>Edit player</title>
+</head>
+
+<body>
+    <%- include('header') %>
+        <main>
+            <section id="form_register_team">
+                <form action='/players/update/<%=player.player_id%>' method='post' enctype='application/x-www-form-urlencoded'>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>firstName</td>
+                                <td>lastName</td>
+                                <td>pseudo</td>
+                                <td>country</td>
+                                <td>team</td>
+                                <td>favCaract</td>
+                                <td>role</td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="player_firstName" value="<%= player.player_firstName %>"></td>
+                                <td><input type="text" name="player_lastName" value="<%= player.player_lastName %>"></td>
+                                <td><input type="text" name="player_pseudo" value="<%= player.player_pseudo %>"></td>
+                                <td><input type="text" name="player_country" value="<%= player.player_country %>"></td>
+                                <td><input type="text" name="player_team" value="<%= player.player_team %>"></td>
+                                <td>
+                                    <% if(champions!=="editor") {%>
+                                        <% for (var c of champions) { %>
+                                            <% if (player.player_favCaract==c.key_champion){ %>
+                                                <input type="text" name="player_favCaract" value="<%=player.player_favCaract %>">
+                                                <% } %>
+                                                    <% } %>
+                                                        <% }else {%>
+                                                            <input type="text" name="player_favCaract" value="266">
+                                                            <% }%>
+                                </td>
+                                <td><input type="text" name="player_role" value="<%= player.player_role%>"></td>
+
+                            </tr>
+                        </table>
+                        <input type="submit" id="submitButton" value="Submit">
+
+                </form>
+            </section>
+        </main>
+
+</body>
+
+</html>
