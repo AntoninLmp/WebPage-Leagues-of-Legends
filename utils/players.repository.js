@@ -67,11 +67,11 @@ module.exports = {
             throw err;
         }
     },
-    async delOneTeam(teamId) {
+    async delOnePlayer(playerId) {
         try {
             conn = await pool.getConnection();
-            sql = "DELETE FROM team WHERE team_id = ?";
-            const okPacket = await conn.query(sql, teamId);
+            sql = "DELETE FROM player WHERE player_id = ?";
+            const okPacket = await conn.query(sql, playerId);
             conn.end();
             console.log(okPacket); // affectedRows, insertId
             return okPacket.affectedRows;

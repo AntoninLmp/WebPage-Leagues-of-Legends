@@ -7,7 +7,7 @@ const championsRepo = require('../utils/champions.repository')
 router.get('/', playersRootAction)
 router.get('/list', listplayers)
 router.get('/edit/:playerId', playersEditAction)
-    /* router.get('/del/:playersId', playersDelAction) */
+router.get('/del/:playerId', playerDelAction)
 router.post('/update/:playerId', playerUpdateAction)
 
 
@@ -43,10 +43,10 @@ async function playerUpdateAction(request, response) {
     request.session.flashMessage = "ROWS UPDATED: " + numRows;
     response.redirect("/players/list");
 }
-async function teamDelAction(request, response) {
-    let numRows = await playersRepo
+async function playerDelAction(request, response) {
+    let numRows = await playersRepo.delOnePlayer(request.params.playerId)
     request.session.flashMessage = "ROWS DELETED: " + numRows;
-    response.redirect("/team/list");
+    response.redirect("/players/list");
 }
 
 module.exports = router
