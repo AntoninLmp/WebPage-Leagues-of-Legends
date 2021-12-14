@@ -24,11 +24,11 @@
                         <td class="headTable">Victory</td>
                         <td class="headTable">Defeat</td>
                         <td class="headTable">Continent</td>
-                        <td class="headTable">Top liner name</td>
-                        <td class="headTable">Mid laner name</td>
-                        <td class="headTable">ADC name</td>
-                        <td class="headTable">Support name</td>
-                        <td class="headTable">Jungle name</td>
+                        <td class="headTable">Top liner player</td>
+                        <td class="headTable">Mid laner player</td>
+                        <td class="headTable">ADC player</td>
+                        <td class="headTable">Support player</td>
+                        <td class="headTable">Jungle player</td>
                     </tr>
 
                     <% for (var t of teams) { %>
@@ -82,6 +82,11 @@
                                         <%=p.player_pseudo %>
                                             <% } %>
                                                 <% } %>
+                            </td>
+                            <td class="noBorder">
+                                <button class="buttonEdit">
+                                    <a href='/team/show/<%= t.team_id %>'>Show</a>
+                                </button>
                             </td>
                             <td class="noBorder">
                                 <button class="buttonEdit">

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/team.css">
+    <link rel="icon" href="/static/Images/icons/lol-league-of-Legends-logo.png">
+    <title>show player - League of Legend</title>
+</head>
+
+<body>
+    <%- include('header') %>
+        <main>
+            <a href="/players/list">Back to list</a>
+            <table>
+                <tr>
+                    <td>ID</td>
+                    <td>
+                        <%= onePlayer.player_id %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td>
+                        <%= onePlayer.player_firstName %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>
+                        <%= onePlayer.player_lastName %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pseudo</td>
+                    <td>
+                        <%= onePlayer.player_pseudo %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td>
+                        <%= onePlayer.player_country %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Team</td>
+                    <td>
+                        <%= onePlayer.player_team %>
+                    </td>
+                </tr>
+                <% for(var c of champions){%>
+                    <% if(onePlayer.player_favCaract==c.key_champion){%>
+                        <tr>
+                            <td>Favorite caracter</td>
+                            <td>
+                                <a href="/champions/show/<%= c.id_champion %> ">
+                                    <%= c.name %>
+                                </a>
+                            </td>
+                        </tr>
+                        <% } %>
+                            <% } %>
+                                <tr>
+                                    <td>Role</td>
+                                    <td>
+                                        <%= onePlayer.player_role %>
+                                    </td>
+                                </tr>
+            </table>
+        </main>
+        <%- include('footer') %>
+</body>
+
+
+</html>
