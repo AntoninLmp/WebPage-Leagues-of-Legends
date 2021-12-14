@@ -19,7 +19,7 @@
                     <button type="button" class="buttonBack gold">Back to Team</button>
                 </a>
 
-                <h1 class="gold center">Edit Team</h1>
+                <h1 class="gold_2 center text_title">Edit Team</h1>
 
                 <form action='/team/update/<%= OneTeam.team_id %>' method='post'
                     enctype='application/x-www-form-urlencoded'>
@@ -41,7 +41,8 @@
                             <label for="team_continent">What continent are you from?</label>
 
                             <select name="team_continent" id="contient">
-                                <option value="Europe" <%- OneTeam.team_continent=="Europe" ? "selected='selected'" : ""%>>Europe</option>
+                                <option value="Europe" <%- OneTeam.team_continent=="Europe" ? "selected='selected'" : ""
+                                    %>>Europe</option>
                                 <option value="China" <%- OneTeam.team_continent=="China" ? "selected='selected'" : ""
                                     %>
                                     >China</option>

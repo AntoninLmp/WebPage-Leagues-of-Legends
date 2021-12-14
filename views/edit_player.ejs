@@ -29,7 +29,7 @@
                 </a>
 
 
-                <h1 class="gold center">Edit player</h1>
+                <h1 class="gold_2 center text_title">Edit player</h1>
                 <form action='/players/update/<%=player.player_id%>' method='post'
                     enctype='application/x-www-form-urlencoded'>
                     <div>
@@ -61,8 +61,11 @@
                                 <td>
                                     <select name="player_favCaract">
                                         <% for (var c of champions) { %>
-                                                <option value="<%=c.key_champion%>" <%-player.player_favCaract==c.key_champion ? "selected='selected'" : "" %>><%= c.name %> </option>
-                                        <% } %>
+                                            <option value="<%=c.key_champion%>"
+                                                <%-player.player_favCaract==c.key_champion ? "selected='selected'" : ""
+                                                %>><%= c.name %>
+                                            </option>
+                                            <% } %>
                                     </select>
 
                                 </td>
@@ -71,13 +74,18 @@
                                 <td>role</td>
                                 <td>
                                     <select name='player_role'>
-                                        <option value='top' <%- player.player_role=="top" ? "selected='selected'" : "" %>>top</option>
-                                        <option value='mid' <%- player.player_role=="mid" ? "selected='selected'" : "" %>>mid</option>
-                                        <option value='adc' <%- player.player_role=="adc" ? "selected='selected'" : "" %>>adc</option>
-                                        <option value='support' <%- player.player_role=="support" ? "selected='selected'" : "" %>>support</option>
-                                        <option value='jungle' <%- player.player_role=="jungle" ? "selected='selected'" : "" %>>jungle</option>
+                                        <option value='top' <%- player.player_role=="top" ? "selected='selected'" : ""
+                                            %>>top</option>
+                                        <option value='mid' <%- player.player_role=="mid" ? "selected='selected'" : ""
+                                            %>>mid</option>
+                                        <option value='adc' <%- player.player_role=="adc" ? "selected='selected'" : ""
+                                            %>>adc</option>
+                                        <option value='support' <%- player.player_role=="support"
+                                            ? "selected='selected'" : "" %>>support</option>
+                                        <option value='jungle' <%- player.player_role=="jungle" ? "selected='selected'"
+                                            : "" %>>jungle</option>
                                     </select>
-                                </td>   
+                                </td>
                             </tr>
                         </table>
                         <input type="submit" id="submitButton" value="Submit">
