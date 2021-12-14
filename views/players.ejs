@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/team.css">
     <link rel="icon" href="/static/Images/icons/lol-league-of-Legends-logo.png">
@@ -15,14 +26,9 @@
     <%- include('header') %>
         <main>
             <section>
-                <a class="center gold_2" id="title_register" href="/team/edit/0">Register your team</a>
-                <p id="text_register">You too have a team, you like to play together and you think you have a chance to compete with other teams so don't wait, register your team now!</p>
+                <h1 class="center gold_2 title_register">Player in competition</h1>
 
-            </section>
-            <section>
-                <h1 class="center gold_2 title_register">Team in competition</h1>
-
-                <table>
+                <table class="table table-striped table-bordered table-hover table-dark">
                     <tr>
                         <td class="headTable">ID</td>
                         <td class="headTable">First Name</td>
@@ -32,6 +38,8 @@
                         <td class="headTable">Team</td>
                         <td class="headTable">Favorite Caracter</td>
                         <td class="headTable">Role</td>
+                        <td class="headTable">Edit</td>
+                        <td class="headTable">Delete</td>
                     </tr>
                     <% for (var p of players) { %>
                         <tr>
@@ -68,20 +76,22 @@
 
                             <td class="noBorder">
                                 <button class="buttonEdit">
-                                        <a href='/players/edit/<%= p.player_id %>'>Edit</a>
-                                    </button>
+                                    <a href='/players/edit/<%= p.player_id %>'>Edit</a>
+                                </button>
                             </td>
                             <td class="noBorder">
                                 <button class="buttonEdit">
-                                        <a href='/players/del/<%= p.player_id %>'>Delete</a>
-                                    </button>
+                                    <a href='/players/del/<%= p.player_id %>'>Delete</a>
+                                </button>
                             </td>
                         </tr>
                         <% } %>
                 </table>
             </section>
-            <section>
-                <a class="center gold_2" id="title_register" href="/players/edit/0">Register your player</a>
+            <section class="sect_2">
+                <a class="center " id="title_register" href="/players/edit/0">
+                    <button type="button" class="button_ buttonRegister gold_2"> Register your player</button>
+                </a>
             </section>
         </main>
         <%- include('footer') %>
