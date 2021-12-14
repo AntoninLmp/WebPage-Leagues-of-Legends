@@ -5,8 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/players.css">
+    <link rel="stylesheet" href="/static/css/player.css">
     <link rel="icon" href="/static/Images/icons/lol-league-of-Legends-logo.png">
     <title>Edit player</title>
 </head>
@@ -15,26 +24,41 @@
     <%- include('header') %>
         <main>
             <section id="form_register_team">
-                <form action='/players/update/<%=player.player_id%>' method='post' enctype='application/x-www-form-urlencoded'>
+                <a href="/players/list">
+                    <button type="button" class="buttonBack gold">Back to Player</button>
+                </a>
+
+
+                <h1 class="gold center">Edit player</h1>
+                <form action='/players/update/<%=player.player_id%>' method='post'
+                    enctype='application/x-www-form-urlencoded'>
                     <div>
-                        <table>
+                        <table class="table table-striped table-bordered table-hover">
                             <tr>
-                                <td>firstName</td>
-                                <td>lastName</td>
-                                <td>pseudo</td>
-                                <td>country</td>
-                                <td>team</td>
-                                <td>favCaract</td>
-                                <td>role</td>
+                                <td>First Name</td>
+                                <td><input type="text" name="player_firstName" value="<%= player.player_firstName %>">
+                                </td>
                             </tr>
                             <tr>
-                                <td><input type="text" name="player_firstName" value="<%= player.player_firstName %>"></td>
-                                <td><input type="text" name="player_lastName" value="<%= player.player_lastName %>"></td>
+                                <td>Last Name</td>
+                                <td><input type="text" name="player_lastName" value="<%= player.player_lastName %>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Pseudo</td>
                                 <td><input type="text" name="player_pseudo" value="<%= player.player_pseudo %>"></td>
+                            </tr>
+                            <tr>
+                                <td>Country</td>
                                 <td><input type="text" name="player_country" value="<%= player.player_country %>"></td>
+                            </tr>
+                            <tr>
+                                <td>Team</td>
                                 <td><input type="text" name="player_team" value="<%= player.player_team %>"></td>
+                            </tr>
+                            <tr>
+                                <td>Favorite Caractere</td>
                                 <td>
-
                                     <select name="player_favCaract">
                                         <% for (var c of champions) { %>
                                                 <option value="<%=c.key_champion%>" <%-player.player_favCaract==c.key_champion ? "selected='selected'" : "" %>><%= c.name %> </option>
@@ -43,18 +67,17 @@
 
                                 </td>
                             </tr>
-
-                            <td>
-                                <select name='player_role'>
+                            <tr>
+                                <td>role</td>
+                                <td>
+                                    <select name='player_role'>
                                         <option value='top' <%- player.player_role=="top" ? "selected='selected'" : "" %>>top</option>
                                         <option value='mid' <%- player.player_role=="mid" ? "selected='selected'" : "" %>>mid</option>
                                         <option value='adc' <%- player.player_role=="adc" ? "selected='selected'" : "" %>>adc</option>
                                         <option value='support' <%- player.player_role=="support" ? "selected='selected'" : "" %>>support</option>
                                         <option value='jungle' <%- player.player_role=="jungle" ? "selected='selected'" : "" %>>jungle</option>
                                     </select>
-                            </td>
-
-
+                                </td>   
                             </tr>
                         </table>
                         <input type="submit" id="submitButton" value="Submit">

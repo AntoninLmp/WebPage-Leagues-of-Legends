@@ -35,3 +35,12 @@ li div{
     font-style:oblique;
     margin-top: 0 ;
 }
+.imgLinkedin{
+    width: 50px;
+}
+a{
+    
+    text-decoration: none;
+    min-width: fit-content;
+    color: white;
+}
